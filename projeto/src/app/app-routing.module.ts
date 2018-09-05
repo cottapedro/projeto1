@@ -9,10 +9,13 @@ import { AventuraListComponent } from './aventura/aventuras/aventura-list.compon
 import { UsuarioListComponent } from './auth/usuario-list.component';
 import { UsuarioFormComponent } from './auth/usuario-form.component';
 
-const ACCESS_DENIED_ROUTE: Route = {
-  path: 'access-denied',
-  component: AccessDeniedComponent
-};
+// const ACCESS_DENIED_ROUTE: Route = {
+//   path: 'access-denied',
+//   component: AccessDeniedComponent
+// };
+
+//path: 'aventura', loadChildren: 'app/aventura/aventura.module#AventuraModule'
+//path: 'aventura', loadChildren: ()=> AventuraModule
 
 const APP_ROUTE: Route = {
   path: 'app',
@@ -20,14 +23,13 @@ const APP_ROUTE: Route = {
   children: [{
     path: 'home', component: HomeComponent
   }
-  ,{path: 'aventura/listar', component: AventuraListComponent}
-  ,{path: 'aventura/form', component: AventuraFormComponent}
+  // ,{path: 'aventura/listar', component: AventuraListComponent}
+  // ,{path: 'aventura/form', component: AventuraFormComponent}
   ,{path: 'usuario/listar', component: UsuarioListComponent}
   ,{path: 'usuario/form', component: UsuarioFormComponent}
-  //,{path: 'aventura', loadChildren: ()=> AventuraModule
-    //path: 'aventura', loadChildren: 'app/aventura/aventura.module#AventuraModule'
-  //}
-  , ACCESS_DENIED_ROUTE]
+  ,{path: 'principal', loadChildren: ()=> AventuraModule
+  }
+  ,{path: '**', component: AccessDeniedComponent}]
 };
 
 const appRoutes: Routes = [

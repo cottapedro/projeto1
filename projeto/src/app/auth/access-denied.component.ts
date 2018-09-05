@@ -3,11 +3,8 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'auth-access-denied',
   template: `
-    <div class="container" id="acessoNegado">
-      <h1><i class="material-icons">error</i>  <span>Ops...</span></h1>
-      <h3>Você não tem permissão para acessar a página solicitada.</h3>
-      <p>Para mais informações, contate o administrador do sistema</p>
-    </div>
+  <img src="https://media.tenor.com/images/f9358f26410857f30f141de5d77fb0e0/raw"/>
+    <h1>ERRO! URL NÃO ENCONTRADA!</h1>
   `
 })
 export class AccessDeniedComponent{

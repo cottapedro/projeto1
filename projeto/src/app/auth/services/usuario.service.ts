@@ -21,15 +21,15 @@ export class UsuarioService {
     return this.http.get(`${url}/usuarios`).map(res => res.json());
   }
 
-//   findItensByEstrutura(id: number):Observable<ItemChecklist[]>{
-//     return this.http.get(`${url}/qry/itens-estrutura/${id}`).map(res => res.json());
+  removerUsuario(id: number): Observable<any> {
+    return this.http.delete(`${url}/usuario/${id}`);
+  }
+
+//   salvarItens(anyItems: any[]): Observable<any[]>{
+//     return  this.http.post(`${url}`,JSON.stringify(anyItems)).map(res=>res.json());
 //   }
 
-//   salvarItens(ItemChecklists: ItemChecklist[]): Observable<ItemChecklist[]>{
-//     return  this.http.post(`${url}`,JSON.stringify(ItemChecklists)).map(res=>res.json());
-//   }
-
-//   removerItens(itemChecklistlista: ItemChecklist[]): Observable<any> {
-//     return this.http.delete(`${url}`, new RequestOptions({ body: JSON.stringify(itemChecklistlista) }));
+//   removerItens(anyItems: any[]): Observable<any> {
+//     return this.http.delete(`${url}`, new RequestOptions({ body: JSON.stringify(anyItems) }));
 //   }
 }

@@ -7,7 +7,7 @@ import { AventuraRouterComponent } from 'src/app/aventura/aventura-router.compon
 
 const AVENTURA_ROUTE: Route = {
   path: 'aventura',
-  component: AventuraRouterComponent,
+  component: AventuraComponent,
   children: [{
     path: 'listar',
     component: AventuraListComponent
@@ -19,7 +19,6 @@ const AVENTURA_ROUTE: Route = {
 
 const aventuraRoutes: Routes = [{
   path: '',
-  //path: 'aventura',
   component: AventuraComponent,
   children: [
     AVENTURA_ROUTE
