@@ -20,4 +20,8 @@ public class TesteDAO {
         return testeModels;
     }
 
+    public void inserir(Long id, String nome, String email){
+        testeModels.add(new TesteModel(id,nome,email));
+    }
+
 }
