@@ -5,7 +5,7 @@ import { UsuarioService } from 'src/app/auth/services/usuario.service';
 @Component({
   selector: 'app-usuario-form',
   template: `
-    <h1>Componente do Form de Usuario</h1>
+    <h1 (click)="testePost()">Componente do Form de Usuario</h1>
   `
 })
 export class UsuarioFormComponent implements OnInit {
@@ -15,9 +15,14 @@ export class UsuarioFormComponent implements OnInit {
   ) {
   }
 
+  testePost(){
+    console.log('ebtrei no click!)');
+    this.usuarioService.salvarItens();
+  }
+
   ngOnInit() {
-    this.usuarioService.findUsuarioById(1).subscribe(e=>{
-      console.log(e);
-    })
+    //this.usuarioService.findUsuarioById(1).subscribe(e=>{
+     // console.log(e);
+    //})
   }
 }
