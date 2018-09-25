@@ -39,8 +39,7 @@ public class UsuarioService {
     @Transactional
     public Usuario save(Usuario usuario){
         this.validarUsuario(usuario);
-        usuario = this.preencheData(usuario);
-        return this.usuarioRepository.save(usuario);
+        return this.usuarioRepository.save(this.preencheData(usuario));
     }
 
     @Transactional(readOnly = true)
@@ -54,7 +53,7 @@ public class UsuarioService {
             usuario.setCreated_at(new Date());
         }
         else{
-            usuario.setCreated_at(usuario.getCreated_at());
+            usuario.setCreated_at(usuarioRepository.dataCriacao(usuario.getId()));
         }
         usuario.setUpdated_at(new Date());
         return usuario;
