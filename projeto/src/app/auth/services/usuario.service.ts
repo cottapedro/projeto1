@@ -44,6 +44,17 @@ export class UsuarioService {
     //return this.http.post(`${url}/usuario`, null);
   }
 
+  salvarUsuario(usuario:Usuario){
+    let bodyString = JSON.stringify(usuario); // Stringify payload
+        let headers      = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+        let options       = new RequestOptions({ headers: headers }); // Create a request option
+
+        return this.http.post(`${url}/usuario`, bodyString, options) // ...using post request
+                         .map(res => res.json()) // ...and calling .json() on the response to return data
+                         .catch((error:any) => Observable.throw(error.json().error || 'Server error')) //...errors if
+                         .subscribe();
+  }
+
 //   removerItens(anyItems: any[]): Observable<any> {
 //     return this.http.delete(`${url}`, new RequestOptions({ body: JSON.stringify(anyItems) }));
 //   }
