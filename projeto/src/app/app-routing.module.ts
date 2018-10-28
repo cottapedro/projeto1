@@ -3,6 +3,7 @@ import { Route, RouterModule, Routes } from '@angular/router';
 import { AccessDeniedComponent } from 'src/app/auth/access-denied.component';
 import { ContentComponent } from 'src/app/content.component';
 import { HomeComponent } from 'src/app/auth/home.component';
+import { LoginComponent } from 'src/app/auth/login.component';
 import { AventuraFormComponent } from './aventura/aventuras/aventura-form.component';
 import { AventuraModule } from 'src/app/aventura/aventura.module';
 import { AventuraListComponent } from './aventura/aventuras/aventura-list.component';
@@ -16,6 +17,11 @@ import { UsuarioFormComponent } from './auth/usuario-form.component';
 
 //path: 'aventura', loadChildren: 'app/aventura/aventura.module#AventuraModule'
 //path: 'aventura', loadChildren: ()=> AventuraModule
+
+const LOGIN_ROUTE: Route = {
+  path: 'login',
+  component: LoginComponent,
+};
 
 const APP_ROUTE: Route = {
   path: 'app',
@@ -33,6 +39,7 @@ const APP_ROUTE: Route = {
 };
 
 const appRoutes: Routes = [
+  LOGIN_ROUTE,
   APP_ROUTE,
   { path: '', redirectTo: '/app/home', pathMatch: 'full' }
 ];
