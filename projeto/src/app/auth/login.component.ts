@@ -5,34 +5,29 @@ import { UsuarioService } from 'src/app/auth/services/usuario.service';
 @Component({
   selector: 'app-login',
   template: `
-    <h1>Bora L-O-G-A-R</h1>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
- 
-    <input type="text" formControlName="username" placeholder="Usuario">
-      <input type="password" formControlName="password" placeholder="Senha">
- 
-      <button type="submit">logar</button>
+  <div class="flex-center">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-container">
+    <img src="././assets/img/epicquest.png"/>
+      <div class="form-group">
+        <div class="binput"><input type="text" formControlName="username" placeholder="Enter Username"></div>
+      </div>
+      <div class="form-group">
+        <div class="binput"><input type="password" formControlName="password" placeholder="Enter Password"></div>
+      </div>
+      <div class="btn-actions">
+        <button (click)="setValue()">Set preset value</button>
+        <button type="submit">logar</button>
+      </div>
     </form>
-    <button (click)="setValue()">Set preset value</button>
- 
+  </div>
   `
 })
-// [formGroup]="form"
-   // <div>
-    //   <label>Nome</label>
-    //   <input type="text" formControlName="nome"/>
-    //   <label>E-mail</label>
-    //   <input type="text" formControlName="email"/>
-    //   <label>Senha</label>
-    //   <input type="text" formControlName="senha"/>
-    // </div>
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
 
   constructor(
-    private usuarioService: UsuarioService,
-    //protected fb: FormBuilder
+    private usuarioService: UsuarioService
   ) {
   }
 

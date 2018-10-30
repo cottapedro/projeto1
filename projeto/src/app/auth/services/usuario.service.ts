@@ -8,8 +8,9 @@ import 'rxjs/add/operator/catch'
 import { Observable } from "rxjs/Rx";
 
 
-const url = 'http://localhost:8080';
-//const url = 'api/usuario';
+//const url = 'http://localhost:8080';
+const url = 'http://5b8ebe04eb676700148a4c82.mockapi.io';
+
 //http(s)://5b8ebe04eb676700148a4c82.mockapi.io/:endpoint
 @Injectable()
 export class UsuarioService {
@@ -17,7 +18,6 @@ export class UsuarioService {
   constructor(private http: Http) { }
 
   login(login:Login){
-    console.log('no service', login);
     let bodyString = JSON.stringify(login);
         let headers      = new Headers({ 'Content-Type': 'application/json' });
         let options      = new RequestOptions({ headers: headers });
@@ -33,7 +33,7 @@ export class UsuarioService {
   }
 
   findAllUsuarios():Observable<Usuario[]>{
-    return this.http.get(`${url}/usuario`).map(res => res.json());
+    return this.http.get(`${url}/usuarios`).map(res => res.json());
   }
 
   removerUsuario(id: number): Observable<any> {

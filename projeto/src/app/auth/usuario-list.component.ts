@@ -8,6 +8,7 @@ import { UsuarioService } from 'src/app/auth/services/usuario.service';
   selector: 'app-usuario-list',
   template: `
     <h1>Componente do List de Usuario</h1>
+    <p>Valor da variavel teste: </p>
     <p>meus usuarios cadastrados:</p>
     <table>
       <thead>
@@ -30,16 +31,15 @@ import { UsuarioService } from 'src/app/auth/services/usuario.service';
 export class UsuarioListComponent implements OnInit {
 
   usuarios: Usuario[];
-
   constructor(
     private usuarioService: UsuarioService
   ) {
   }
 
   ngOnInit() {
-    this.usuarioService.findAllUsuarios().subscribe(e=>{
-      this.usuarios = e;
-      console.log(e);
+    this.usuarioService.findAllUsuarios().subscribe(lstUsuarios=>{
+      this.usuarios = lstUsuarios;
+      console.log(lstUsuarios);
     })
   }
 }
