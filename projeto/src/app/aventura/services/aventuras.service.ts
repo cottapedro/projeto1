@@ -1,24 +1,42 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions } from '@angular/http';
-//import { Observable } from 'rxjs/Observable';
+import { Rpg } from './rpg';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch'
+import { Observable } from "rxjs/Rx";
+import { Raca } from './raca';
 
-const url = 'api/aventura';
+const url = 'http://localhost:8080';
 
 @Injectable()
 export class AventuraService {
 
   constructor(private http: Http) { }
 
-//   findItensByEstrutura(id: number):Observable<ItemChecklist[]>{
-//     return this.http.get(`${url}/qry/itens-estrutura/${id}`).map(res => res.json());
-//   }
+  salvarRpg(item:Rpg){
+    let bodyString = JSON.stringify(item);
+        let headers      = new Headers({ 'Content-Type': 'application/json' });
+        let options      = new RequestOptions({ headers: headers });
 
-//   salvarItens(ItemChecklists: ItemChecklist[]): Observable<ItemChecklist[]>{
-//     return  this.http.post(`${url}`,JSON.stringify(ItemChecklists)).map(res=>res.json());
-//   }
+        return this.http.post(`${url}/rpg`, bodyString, options)
+                         .map(res => res.json())
+                         .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
+                         .subscribe();
+  }
 
-//   removerItens(itemChecklistlista: ItemChecklist[]): Observable<any> {
-//     return this.http.delete(`${url}`, new RequestOptions({ body: JSON.stringify(itemChecklistlista) }));
-//   }
+  findAllRpgs():Observable<Rpg[]>{
+    return this.http.get(`${url}/rpg`).map(res => res.json());
+  }
+
+  salvarRaca(raca:Raca){
+    let bodyString = JSON.stringify(raca);
+        let headers      = new Headers({ 'Content-Type': 'application/json' });
+        let options       = new RequestOptions({ headers: headers });
+
+        return this.http.post(`${url}/usuario`, bodyString, options)
+                         .map(res => res.json())
+                         .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
+                         .subscribe();
+  }
+
 }

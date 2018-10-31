@@ -5,17 +5,33 @@ import { UsuarioService } from 'src/app/auth/services/usuario.service';
 @Component({
   selector: 'app-usuario-form',
   template: `
-    <h1 (click)="testePost()">Componente do Form de Usuario</h1>
+    <div class="casca">
+    <h2>Componente do Form de Usuario</h2>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div *ngIf="nome?.invalid"> Minimo: 2 caracters </div>
- 
-      <input type="text" formControlName="nome" placeholder="Nome">
-      <input type="password" formControlName="senha" placeholder="Senha">
-      <input type="email" formControlName="email" placeholder="Email">
- 
-      <button type="submit">Submit</button>
+      <!-- <div *ngIf="nome?.invalid"> Minimo: 2 caracters </div> -->
+      <div class="field">
+        <label class="label">Nome</label>
+        <div class="control">
+          <input class="input" type="text" formControlName="nome" placeholder="Nome">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Senha</label>
+        <div class="control">
+          <input class="input" type="password" formControlName="senha" placeholder="Senha">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Email</label>
+        <div class="control">
+          <input class="input" type="email" formControlName="email" placeholder="Email">
+        </div>
+      </div>
+      <div class="field">
+        <button class="button is-primary" type="submit">Salvar</button>
+      </div>
     </form>
-    <!--<button (click)="setValue()">Set preset value</button>-->
+    </div> 
  
   `
 })

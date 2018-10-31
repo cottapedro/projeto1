@@ -1,9 +1,13 @@
 <h1>Estrutura Angular by Special Week</h1>
-<button (click)="navegarPara('home')">home</button>
-<button (click)="navegarPara('usuario/listar')">listar usuarios</button>
-<button (click)="navegarPara('usuario/form')">form usuarios</button>
-<button (click)="navegarPara('principal/aventura/listar')">listar aventuras</button>
-<button (click)="navegarPara('principal/aventura/form')">form aventuras</button>
-<div class="page-content">
+<div class="columns heya">
+    <button class="button column" (click)="navegarPara('home')">home</button>
+    <button class="button column" (click)="navegarPara('usuario/listar')">listar usuarios</button>
+    <button class="button column" (click)="navegarPara('usuario/form')">form usuarios</button>
+    <!-- <buclass="button column" tton (click)="navegarPara('principal/aventura/listar')">listar aventuras</button>
+    <button class="button column" (click)="navegarPara('principal/aventura/form')">form aventuras</button> -->
+    <button class="button column" (click)="navegarPara('rpg/form')">form rpg</button>
+    <button class="button column" (click)="navegarPara('raca/form')">form raca</button>
+</div>
+<div class="page-content" style="border-top: 1px solid #ccc; margin-top: 15px; padding-top: 50px;">
     <router-outlet></router-outlet>
 </div>

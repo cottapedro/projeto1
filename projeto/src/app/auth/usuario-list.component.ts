@@ -7,10 +7,10 @@ import { UsuarioService } from 'src/app/auth/services/usuario.service';
 @Component({
   selector: 'app-usuario-list',
   template: `
-    <h1>Componente do List de Usuario</h1>
-    <p>Valor da variavel teste: </p>
+  <div class="casca">
+    <h2>Componente do List de Usuario</h2>
     <p>meus usuarios cadastrados:</p>
-    <table>
+    <table class="table">
       <thead>
         <tr>
           <th>ID</th>
@@ -26,6 +26,7 @@ import { UsuarioService } from 'src/app/auth/services/usuario.service';
         </tr>
       </tbody>
     </table>
+  </div>
   `
 })
 export class UsuarioListComponent implements OnInit {

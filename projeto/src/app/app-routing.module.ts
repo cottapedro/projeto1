@@ -9,6 +9,8 @@ import { AventuraModule } from 'src/app/aventura/aventura.module';
 import { AventuraListComponent } from './aventura/aventuras/aventura-list.component';
 import { UsuarioListComponent } from './auth/usuario-list.component';
 import { UsuarioFormComponent } from './auth/usuario-form.component';
+import { RpgFormComponent } from './aventura/rpg/rpg-form.component';
+import { RacaFormComponent } from './aventura/raca/raca-form.component';
 
 // const ACCESS_DENIED_ROUTE: Route = {
 //   path: 'access-denied',
@@ -33,6 +35,8 @@ const APP_ROUTE: Route = {
   // ,{path: 'aventura/form', component: AventuraFormComponent}
   ,{path: 'usuario/listar', component: UsuarioListComponent}
   ,{path: 'usuario/form', component: UsuarioFormComponent}
+  ,{path: 'rpg/form', component: RpgFormComponent}
+  ,{path: 'raca/form', component: RacaFormComponent}
   ,{path: 'principal', loadChildren: ()=> AventuraModule
   }
   ,{path: '**', component: AccessDeniedComponent}]
