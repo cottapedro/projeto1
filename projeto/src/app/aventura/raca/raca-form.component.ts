@@ -30,12 +30,12 @@ import { Rpg } from '../services/rpg';
 
     carregaListaDeRpgs(){
       this.aventuraService.findAllRpgs().subscribe(e=>{
-        this.lstRpg = e;
+          this.lstRpg = e;
       })
     }
 
     onSubmit(): void{
-     // console.log(this.form.value);
+     console.log(this.form.value);
       this.aventuraService.salvarRaca(this.form.value);
     }
   }

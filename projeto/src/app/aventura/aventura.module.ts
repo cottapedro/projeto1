@@ -11,6 +11,10 @@ import { AventuraRouterComponent } from 'src/app/aventura/aventura-router.compon
 import { RpgFormComponent } from './rpg/rpg-form.component';
 import { AventuraService } from './services/aventuras.service';
 import { RacaFormComponent } from './raca/raca-form.component';
+import { RpgListComponent } from './rpg/rpg-list.component';
+import { RacaListComponent } from './raca/raca-list.component';
+import { HabilidadesRacaListComponent } from './habilidades-raca/habilidades-raca-list.component';
+import { HabilidadesRacaFormComponent } from './habilidades-raca/habilidades-raca-form.component';
 
 @NgModule({
   imports: [
@@ -26,7 +30,11 @@ import { RacaFormComponent } from './raca/raca-form.component';
       AventuraFormComponent,
       AventuraListComponent,
       RpgFormComponent,
-      RacaFormComponent
+      RpgListComponent,
+      RacaFormComponent,
+      RacaListComponent,
+      HabilidadesRacaListComponent,
+      HabilidadesRacaFormComponent
     ],
     providers: [AventuraService],  
   exports: [

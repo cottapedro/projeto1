@@ -11,6 +11,10 @@ import { UsuarioListComponent } from './auth/usuario-list.component';
 import { UsuarioFormComponent } from './auth/usuario-form.component';
 import { RpgFormComponent } from './aventura/rpg/rpg-form.component';
 import { RacaFormComponent } from './aventura/raca/raca-form.component';
+import { RacaListComponent } from './aventura/raca/raca-list.component';
+import { RpgListComponent } from './aventura/rpg/rpg-list.component';
+import { HabilidadesRacaListComponent } from './aventura/habilidades-raca/habilidades-raca-list.component';
+import { HabilidadesRacaFormComponent } from './aventura/habilidades-raca/habilidades-raca-form.component';
 
 // const ACCESS_DENIED_ROUTE: Route = {
 //   path: 'access-denied',
@@ -35,8 +39,13 @@ const APP_ROUTE: Route = {
   // ,{path: 'aventura/form', component: AventuraFormComponent}
   ,{path: 'usuario/listar', component: UsuarioListComponent}
   ,{path: 'usuario/form', component: UsuarioFormComponent}
+  ,{path: 'rpg/list', component: RpgListComponent}
   ,{path: 'rpg/form', component: RpgFormComponent}
+  ,{path: 'raca/list', component: RacaListComponent}
   ,{path: 'raca/form', component: RacaFormComponent}
+  ,{path: 'habilidades-raca/list', component: HabilidadesRacaListComponent}
+  ,{path: 'habilidades-raca/form', component: HabilidadesRacaFormComponent}
+  
   ,{path: 'principal', loadChildren: ()=> AventuraModule
   }
   ,{path: '**', component: AccessDeniedComponent}]

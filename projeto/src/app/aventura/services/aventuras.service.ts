@@ -28,6 +28,10 @@ export class AventuraService {
     return this.http.get(`${url}/rpg`).map(res => res.json());
   }
 
+  findAllRacas():Observable<Raca[]>{
+    return this.http.get(`${url}/raca`).map(res => res.json());
+  }
+
   salvarRaca(raca:Raca){
     let bodyString = JSON.stringify(raca);
         let headers      = new Headers({ 'Content-Type': 'application/json' });

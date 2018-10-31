@@ -16,6 +16,7 @@ import { UsuarioService } from 'src/app/auth/services/usuario.service';
           <th>ID</th>
           <th>nome</th>
           <th>email</th>
+          <th>opcões</th>
         </tr>
       </thead>
       <tbody>
@@ -23,6 +24,14 @@ import { UsuarioService } from 'src/app/auth/services/usuario.service';
           <td>{{usuario.id}}</td>
           <td>{{usuario.nome}}</td>
           <td>{{usuario.email}}</td>
+          <td>
+            <button class="button" (click)="editarUsuario(usuario.id)">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button class="button" (click)="removerUsuario(usuario.id)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -42,5 +51,13 @@ export class UsuarioListComponent implements OnInit {
       this.usuarios = lstUsuarios;
       console.log(lstUsuarios);
     })
+  }
+
+  editarUsuario(id:number){
+
+  }
+
+  removerUsuario(id:number){
+    this.usuarioService.removerUsuario(id).subscribe(e=>{});
   }
 }
