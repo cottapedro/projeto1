@@ -25,6 +25,7 @@ import { Rpg } from '../services/rpg';
         descricao: new FormControl(''),
         rpg: new FormControl('')
       });
+      this.carregaListaDeRpgs();
     }
 
     carregaListaDeRpgs(){
