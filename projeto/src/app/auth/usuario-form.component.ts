@@ -79,12 +79,12 @@ export class UsuarioFormComponent implements OnInit, AfterViewInit {
       email: new FormControl(''),
     });
 
-    this.route.params.map(e=>{
-      console.log(e.get('id'));
+    this.route.params.subscribe(e=>{
+      console.log(e);
       if(e.get('id')){
         this.atualizaForm(e.get('id'));
       }
-    })
+    });
   }
 
   atualizaForm(idUsuario: number){
