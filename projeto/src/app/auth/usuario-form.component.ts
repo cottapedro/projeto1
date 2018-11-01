@@ -81,8 +81,9 @@ export class UsuarioFormComponent implements OnInit, AfterViewInit {
 
     this.route.params.subscribe(e=>{
       console.log(e);
-      if(e.get('id')){
-        this.atualizaForm(e.get('id'));
+      if(e.id){
+        console.log('oiee', e.id);
+        this.atualizaForm(e.id);
       }
     });
   }
