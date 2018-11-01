@@ -101,6 +101,12 @@ export class UsuarioFormComponent implements OnInit, AfterViewInit {
 
   onSubmit(): void {
     console.log(this.form.value);
-    this.usuarioService.salvarUsuario(this.form.value);
+    let usuario =  <Usuario>{
+      id: this.form.value.id,
+      nome: this.form.value.nome,
+      senha: this.form.value.senha,
+      email: this.form.value.email
+     }
+    this.usuarioService.salvarUsuario(usuario);
   }
 }

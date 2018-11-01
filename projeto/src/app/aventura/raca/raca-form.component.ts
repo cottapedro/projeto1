@@ -1,5 +1,5 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
 import { AventuraService } from '../services/aventuras.service';
 import { Rpg } from '../services/rpg';
 import { Raca } from '../services/raca';
@@ -15,17 +15,24 @@ import { Raca } from '../services/raca';
     lstRpg: Rpg[];
   
     constructor(
+      public fb: FormBuilder,
       private aventuraService: AventuraService
 
     ) {
     }
    
     ngOnInit() {
-      this.form = new FormGroup({
-        nome: new FormControl(''),
-        descricao: new FormControl(''),
-        rpg: new FormControl(null)
-      });
+      this.form = this.fb.group({
+        nome: [{value: null, disabled: false}, [Validators.required]],
+        descricao: [{value: null, disabled: false}, [Validators.required]],
+        rpg: [{value: null, disabled: false}, [Validators.required]]
+      })
+
+      // this.form = new FormGroup({
+      //   nome: new FormControl(''),
+      //   descricao: new FormControl(''),
+      //   rpg: new FormControl(null)
+      // });
       this.carregaListaDeRpgs();
     }
 
