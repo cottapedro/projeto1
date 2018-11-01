@@ -42,6 +42,7 @@ const APP_ROUTE: Route = {
   ,{path: 'usuario/form/:id', component: UsuarioFormComponent}
   ,{path: 'rpg/list', component: RpgListComponent}
   ,{path: 'rpg/form', component: RpgFormComponent}
+  ,{path: 'rpg/form/:id', component: RpgFormComponent}
   ,{path: 'raca/list', component: RacaListComponent}
   ,{path: 'raca/form', component: RacaFormComponent}
   ,{path: 'habilidades-raca/list', component: HabilidadesRacaListComponent}
