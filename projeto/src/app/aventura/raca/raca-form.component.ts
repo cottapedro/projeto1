@@ -24,7 +24,7 @@ import { Raca } from '../services/raca';
       this.form = new FormGroup({
         nome: new FormControl(''),
         descricao: new FormControl(''),
-        rpg: new FormControl('')
+        rpg: new FormControl()
       });
       this.carregaListaDeRpgs();
     }

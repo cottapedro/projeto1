@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { UsuarioService } from 'src/app/auth/services/usuario.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
@@ -46,7 +46,7 @@ import { Usuario } from './services/usuario';
     //   <label>Senha</label>
     //   <input type="text" formControlName="senha"/>
     // </div>
-export class UsuarioFormComponent implements OnInit {
+export class UsuarioFormComponent implements OnInit, AfterViewInit {
 
   form: FormGroup;
 
@@ -63,12 +63,12 @@ export class UsuarioFormComponent implements OnInit {
   }
 
   ngAfterViewInit(){
-    this.route.params.map(e=>{
-      console.log(e.get('id'));
-      if(e.get('id')){
-        this.atualizaForm(e.get('id'));
-      }
-    })
+    // this.route.params.map(e=>{
+    //   console.log(e.get('id'));
+    //   if(e.get('id')){
+    //     this.atualizaForm(e.get('id'));
+    //   }
+    // })
   }
 
   ngOnInit() {
@@ -78,6 +78,13 @@ export class UsuarioFormComponent implements OnInit {
       senha: new FormControl(''),
       email: new FormControl(''),
     });
+
+    this.route.params.map(e=>{
+      console.log(e.get('id'));
+      if(e.get('id')){
+        this.atualizaForm(e.get('id'));
+      }
+    })
   }
 
   atualizaForm(idUsuario: number){
