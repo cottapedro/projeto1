@@ -17,7 +17,7 @@
         <div class="control">
             <div class="select">
                 <select formControlName="rpg">
-                    <option *ngFor="let rpg of lstRpg" [value]="rpg">{{rpg.nome}}</option>
+                    <option *ngFor="let rpg of lstRpg" [ngValue]="rpg">{{rpg.nome}}</option>
                 </select>
             </div>
         </div>
