@@ -36,7 +36,7 @@ export class UsuarioService {
     return this.http.get(`${url}/usuario`).map(res => res.json());
   }
 
-  removerUsuario(id: number): Observable<any> {
+  removerUsuario(id: number){
     return this.http.delete(`${url}/usuario`, { body: JSON.stringify(id) });
     //return this.http.delete(`${url}/usuario`, { body: {'id':id} });
   }
