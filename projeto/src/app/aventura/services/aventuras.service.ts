@@ -24,6 +24,10 @@ export class AventuraService {
                          .subscribe();
   }
 
+  findRpgById(id: number):Observable<Rpg>{
+    return this.http.get(`${url}/rpg/${id}`).map(res => res.json());
+  }
+
   findAllRpgs():Observable<Rpg[]>{
     return this.http.get(`${url}/rpg`).map(res => res.json());
   }

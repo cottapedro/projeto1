@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AventuraService } from '../services/aventuras.service';
 import { Rpg } from '../services/rpg';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -41,6 +42,7 @@ export class RpgListComponent implements OnInit {
 
   rpgs: Rpg[];
   constructor(
+    private router: Router,
     private aventuraService: AventuraService
   ) {
   }
@@ -52,7 +54,7 @@ export class RpgListComponent implements OnInit {
   }
 
   editarRpg(id:number){
-
+    this.router.navigate([`app/rpg/form/${id}`]);
   }
 
   removerRpg(id:number){
