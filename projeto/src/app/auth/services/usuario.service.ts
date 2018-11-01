@@ -37,7 +37,7 @@ export class UsuarioService {
   }
 
   removerUsuario(id: number): Observable<any> {
-    return this.http.delete(`${url}/usuario/${id}`);
+    return this.http.delete(`${url}/usuario`, { body: JSON.stringify(id) });
   }
 
   salvarItens(){

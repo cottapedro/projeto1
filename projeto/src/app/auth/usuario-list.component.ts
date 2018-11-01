@@ -2,6 +2,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { Usuario } from 'src/app/auth/services/usuario';
 import { UsuarioService } from 'src/app/auth/services/usuario.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -42,6 +43,7 @@ export class UsuarioListComponent implements OnInit {
 
   usuarios: Usuario[];
   constructor(
+    private router: Router,
     private usuarioService: UsuarioService
   ) {
   }
@@ -54,7 +56,7 @@ export class UsuarioListComponent implements OnInit {
   }
 
   editarUsuario(id:number){
-
+    this.router.navigate([`app/usuario/form/${id}`]);
   }
 
   removerUsuario(id:number){
