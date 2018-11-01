@@ -23,7 +23,7 @@ import { Rpg } from '../services/rpg';
       this.form = new FormGroup({
         nome: new FormControl(''),
         descricao: new FormControl(''),
-        rpg: new FormControl({id:9, nome: 'ogro', descricao:'foda'})
+        rpg: new FormControl('')
       });
       this.carregaListaDeRpgs();
     }

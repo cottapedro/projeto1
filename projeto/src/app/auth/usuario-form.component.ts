@@ -1,6 +1,8 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { UsuarioService } from 'src/app/auth/services/usuario.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Usuario } from './services/usuario';
 
 @Component({
   selector: 'app-usuario-form',
@@ -49,6 +51,7 @@ export class UsuarioFormComponent implements OnInit {
   form: FormGroup;
 
   constructor(
+    private route: ActivatedRoute,
     private usuarioService: UsuarioService,
     //protected fb: FormBuilder
   ) {
@@ -59,18 +62,30 @@ export class UsuarioFormComponent implements OnInit {
     this.usuarioService.salvarItens();
   }
 
+  ngAfterViewInit(){
+    this.route.params.map(e=>{
+      if(e.get('id')){
+        this.atualizaForm(e.get('id'));
+      }
+    })
+  }
+
   ngOnInit() {
     this.form = new FormGroup({
+      id: new FormControl(null),
       nome: new FormControl('', Validators.minLength(2)),
       senha: new FormControl(''),
       email: new FormControl(''),
     });
-    // this.form = this.fb.group({
-    //   id: this.fb.control(null),
-    //   nome: this.fb.control(null),
-    //   senha: this.fb.control(null),
-    //   email: this.fb.control(null)
-    // });
+  }
+
+  atualizaForm(idUsuario: number){
+    this.usuarioService.findUsuarioById(idUsuario).subscribe(e=>{
+      this.form.get('id').setValue(e.id);
+      this.form.get('nome').setValue(e.nome);
+      this.form.get('email').setValue(e.email);
+      this.form.get('senha').setValue(e.senha);
+    });
   }
 
   onSubmit(): void {
