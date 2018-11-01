@@ -49,9 +49,9 @@ import { Raca } from '../services/raca';
       nome: this.form.value.nome,
       descricao: this.form.value.descricao,
       rpg: <Rpg>{
-        id: this.form.value.id,
-        nome: this.form.value.nome,
-        descricao: this.form.value.descricao,
+        id: this.form.value.rpg.id,
+        nome: this.form.value.rpg.nome,
+        descricao: this.form.value.rpg.descricao,
       }
      }
      console.log(raca);
