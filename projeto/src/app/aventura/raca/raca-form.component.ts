@@ -48,7 +48,11 @@ import { Raca } from '../services/raca';
       id: null,
       nome: this.form.value.nome,
       descricao: this.form.value.descricao,
-      rpg: this.form.value.rpg
+      rpg: <Rpg>{
+        id: this.form.value.id,
+        nome: this.form.value.nome,
+        descricao: this.form.value.descricao,
+      }
      }
      console.log(raca);
       this.aventuraService.salvarRaca(raca);
