@@ -21,6 +21,7 @@ import { ActivatedRoute } from '@angular/router';
    
     ngOnInit() {
       this.form = new FormGroup({
+        id: new FormControl(null),
         nome: new FormControl('', Validators.minLength(2)),
         descricao: new FormControl('')
       });
