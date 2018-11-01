@@ -64,6 +64,7 @@ export class UsuarioFormComponent implements OnInit {
 
   ngAfterViewInit(){
     this.route.params.map(e=>{
+      console.log(e.get('id'));
       if(e.get('id')){
         this.atualizaForm(e.get('id'));
       }
@@ -80,7 +81,9 @@ export class UsuarioFormComponent implements OnInit {
   }
 
   atualizaForm(idUsuario: number){
+    console.log('atualizando');
     this.usuarioService.findUsuarioById(idUsuario).subscribe(e=>{
+      console.log('usuario por id:', e);
       this.form.get('id').setValue(e.id);
       this.form.get('nome').setValue(e.nome);
       this.form.get('email').setValue(e.email);

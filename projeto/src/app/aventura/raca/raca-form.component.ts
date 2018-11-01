@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angu
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { AventuraService } from '../services/aventuras.service';
 import { Rpg } from '../services/rpg';
+import { Raca } from '../services/raca';
 
 @Component({
     selector: 'app-raca-form',
@@ -35,7 +36,14 @@ import { Rpg } from '../services/rpg';
     }
 
     onSubmit(): void{
-     console.log(this.form.value);
-      this.aventuraService.salvarRaca(this.form.value);
+     
+     let raca =  <Raca>{
+      id: null,
+      nome: this.form.value.nome,
+      descricao: this.form.value.descricao,
+      rpg: this.form.value.rpg
+     }
+     console.log(raca);
+      this.aventuraService.salvarRaca(raca);
     }
   }
