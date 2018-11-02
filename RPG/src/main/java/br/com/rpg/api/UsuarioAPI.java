@@ -28,8 +28,8 @@ public class UsuarioAPI {
     }
 
     @DeleteMapping
-    public void deleteById(@RequestBody IdDTO id) {
-        this.usuarioAS.deleteById(id.getId());
+    public void deleteById(@RequestBody Integer id) {
+        this.usuarioAS.deleteById(id);
     }
 
     @PostMapping
