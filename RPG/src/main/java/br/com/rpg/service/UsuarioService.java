@@ -48,6 +48,12 @@ public class UsuarioService {
         return this.usuarioRepository.existUsuario(id);
     }
 
+    @Transactional(readOnly = true)
+    public boolean existLogin(String login) {
+        throwIf(login, Objects::isNull, "Login can not be null");
+        return this.usuarioRepository.existLogin(login);
+    }
+
     private Usuario preencheData(Usuario usuario){
         if(usuario.getId() == null){
             usuario.setCreated_at(new Date());

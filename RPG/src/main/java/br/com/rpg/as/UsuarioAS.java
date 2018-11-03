@@ -1,7 +1,8 @@
 package br.com.rpg.as;
 
 import br.com.rpg.domain.Usuario;
-import br.com.rpg.dto.UsuarioDTO;
+import br.com.rpg.dto.input.IUsuarioDTO;
+import br.com.rpg.dto.output.OUsuarioDTO;
 import br.com.rpg.service.UsuarioService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -23,15 +24,15 @@ public class UsuarioAS {
     private ConverterMapper mapper;
 
     @Transactional(readOnly = true)
-    public List<UsuarioDTO> findAll(){
+    public List<OUsuarioDTO> findAll(){
         List<Usuario> usuarios = this.usuarioService.findAll();
-        return this.mapper.mapAsList(usuarios, UsuarioDTO.class);
+        return this.mapper.mapAsList(usuarios, OUsuarioDTO.class);
     }
 
     @Transactional(readOnly = true)
-    public UsuarioDTO findById(Integer id){
+    public OUsuarioDTO findById(Integer id){
         Usuario usuario = this.usuarioService.findById(id);
-        return mapper.map(usuario, UsuarioDTO.class);
+        return mapper.map(usuario, OUsuarioDTO.class);
     }
 
     @Transactional
@@ -40,18 +41,32 @@ public class UsuarioAS {
     }
 
     @Transactional
-    public UsuarioDTO save(UsuarioDTO usuarioDTO){
+    public OUsuarioDTO save(IUsuarioDTO usuarioDTO){
+        validarLogin(usuarioDTO.getLogin());
         Usuario usuario = this.mapper.map(usuarioDTO, Usuario.class);
         usuario = this.usuarioService.save(usuario);
-        return this.mapper.map(usuario, UsuarioDTO.class);
+        return this.mapper.map(usuario, OUsuarioDTO.class);
     }
 
     @Transactional
-    public UsuarioDTO update(Integer id, UsuarioDTO usuarioDTO) {
+    public OUsuarioDTO update(Integer id, IUsuarioDTO usuarioDTO) {
+        validarID(id);
+        validarLogin(usuarioDTO.getLogin());
+        Usuario usuario = this.mapper.map(usuarioDTO, Usuario.class);
+        usuario.setId(id);
+        usuario = this.usuarioService.save(usuario);
+        return this.mapper.map(usuario, OUsuarioDTO.class);
+    }
+
+    private void validarID(Integer id) {
         throwIf(id, Objects::isNull, "ID Usuario can not be null");
         boolean existUsuario = this.usuarioService.existUsuario(id);
         throwIf(existUsuario, Boolean.FALSE::equals, "Usuario does not already exist");
-        usuarioDTO.setId(id);
-        return this.save(usuarioDTO);
+
+    }
+    private void validarLogin(String login) {
+        throwIf(login, Objects::isNull, "Login can not be null");
+        boolean existLogin = this.usuarioService.existLogin(login);
+        throwIf(existLogin, Boolean.TRUE::equals, "Login does already exist");
     }
 }

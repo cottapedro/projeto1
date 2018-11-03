@@ -29,6 +29,9 @@ public class Usuario extends BaseEntity<Integer> {
     @Column(name="nome")
     private String nome;
 
+    @Column(name="login")
+    private String login;
+
     @Column(name="email")
     private String email;
 

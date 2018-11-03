@@ -1,5 +1,6 @@
-package br.com.rpg.dto;
+package br.com.rpg.dto.input;
 
+import br.com.rpg.dto.output.ORacaDTO;
 import lombok.*;
 
 
@@ -8,16 +9,15 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+@EqualsAndHashCode()
 @ToString
-public class HabilidadeRacaDTO {
+public class IHabilidadeRacaDTO {
 
-    private Integer id;
     private String nome;
     private String descricao;
     private Integer tipoHabilidade;
     private Integer valor;
     private String skill;
-    private RacaDTO raca;
+    private ORacaDTO raca;
 
 }

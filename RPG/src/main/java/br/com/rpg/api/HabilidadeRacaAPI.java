@@ -1,8 +1,8 @@
 package br.com.rpg.api;
 
 import br.com.rpg.as.HabilidadeRacaAS;
-import br.com.rpg.dto.IdDTO;
-import br.com.rpg.dto.HabilidadeRacaDTO;
+import br.com.rpg.dto.output.OHabilidadeRacaDTO;
+import br.com.rpg.dto.input.IHabilidadeRacaDTO;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -18,27 +18,27 @@ public class HabilidadeRacaAPI {
     HabilidadeRacaAS habilidadeRacaAS;
 
     @GetMapping
-    public List<HabilidadeRacaDTO> findAll() {
+    public List<OHabilidadeRacaDTO> findAll() {
         return this.habilidadeRacaAS.findAll();
     }
 
     @GetMapping("/{id}")
-    public HabilidadeRacaDTO findById(@PathVariable("id") Integer id) {
+    public OHabilidadeRacaDTO findById(@PathVariable("id") Integer id) {
         return this.habilidadeRacaAS.findById(id);
     }
 
     @DeleteMapping
-    public void deleteById(@RequestBody IdDTO id) {
-        this.habilidadeRacaAS.deleteById(id.getId());
+    public void deleteById(@RequestBody Integer id) {
+        this.habilidadeRacaAS.deleteById(id);
     }
 
     @PostMapping
-    public HabilidadeRacaDTO save(@RequestBody HabilidadeRacaDTO habilidadeRacaDTO) {
-        return this.habilidadeRacaAS.save(habilidadeRacaDTO);
+    public OHabilidadeRacaDTO save(@RequestBody IHabilidadeRacaDTO iHabilidadeRacaDTO) {
+        return this.habilidadeRacaAS.save(iHabilidadeRacaDTO);
     }
 
     @PutMapping("/{id}")
-    public HabilidadeRacaDTO update(@PathVariable("id") Integer id, @RequestBody HabilidadeRacaDTO habilidadeRacaDTO) {
-        return this.habilidadeRacaAS.update(id, habilidadeRacaDTO);
+    public OHabilidadeRacaDTO update(@PathVariable("id") Integer id, @RequestBody IHabilidadeRacaDTO iHabilidadeRacaDTO) {
+        return this.habilidadeRacaAS.update(id, iHabilidadeRacaDTO);
     }
 }

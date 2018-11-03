@@ -1,4 +1,4 @@
-package br.com.rpg.dto;
+package br.com.rpg.dto.input;
 
 import lombok.*;
 
@@ -8,12 +8,12 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+@EqualsAndHashCode()
 @ToString
-public class RPGDTO {
+public class IRacaDTO {
 
-    private Integer id;
     private String nome;
     private String descricao;
+    private IRPGDTO rpg;
 
 }

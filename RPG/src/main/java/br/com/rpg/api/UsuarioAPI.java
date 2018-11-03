@@ -1,8 +1,8 @@
 package br.com.rpg.api;
 
 import br.com.rpg.as.UsuarioAS;
-import br.com.rpg.dto.IdDTO;
-import br.com.rpg.dto.UsuarioDTO;
+import br.com.rpg.dto.input.IUsuarioDTO;
+import br.com.rpg.dto.output.OUsuarioDTO;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -18,12 +18,12 @@ public class UsuarioAPI {
     UsuarioAS usuarioAS;
 
     @GetMapping
-    public List<UsuarioDTO> findAll() {
+    public List<OUsuarioDTO> findAll() {
         return this.usuarioAS.findAll();
     }
 
     @GetMapping("/{id}")
-    public UsuarioDTO findById(@PathVariable("id") Integer id) {
+    public OUsuarioDTO findById(@PathVariable("id") Integer id) {
         return this.usuarioAS.findById(id);
     }
 
@@ -33,12 +33,12 @@ public class UsuarioAPI {
     }
 
     @PostMapping
-    public UsuarioDTO save(@RequestBody UsuarioDTO usuarioDTO) {
+    public OUsuarioDTO save(@RequestBody IUsuarioDTO usuarioDTO) {
         return this.usuarioAS.save(usuarioDTO);
     }
 
     @PutMapping("/{id}")
-    public UsuarioDTO update(@PathVariable("id") Integer id, @RequestBody UsuarioDTO usuarioDTO) {
+    public OUsuarioDTO update(@PathVariable("id") Integer id, @RequestBody IUsuarioDTO usuarioDTO) {
         return this.usuarioAS.update(id, usuarioDTO);
     }
 }

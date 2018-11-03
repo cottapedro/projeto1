@@ -1,8 +1,8 @@
 package br.com.rpg.api;
 
 import br.com.rpg.as.RacaAS;
-import br.com.rpg.dto.IdDTO;
-import br.com.rpg.dto.RacaDTO;
+import br.com.rpg.dto.input.IRacaDTO;
+import br.com.rpg.dto.output.ORacaDTO;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -18,27 +18,27 @@ public class RacaAPI {
     RacaAS racaAS;
 
     @GetMapping
-    public List<RacaDTO> findAll() {
+    public List<ORacaDTO> findAll() {
         return this.racaAS.findAll();
     }
 
     @GetMapping("/{id}")
-    public RacaDTO findById(@PathVariable("id") Integer id) {
+    public ORacaDTO findById(@PathVariable("id") Integer id) {
         return this.racaAS.findById(id);
     }
 
     @DeleteMapping
-    public void deleteById(@RequestBody IdDTO id) {
-        this.racaAS.deleteById(id.getId());
+    public void deleteById(@RequestBody Integer id) {
+        this.racaAS.deleteById(id);
     }
 
     @PostMapping
-    public RacaDTO save(@RequestBody RacaDTO racaDTO) {
+    public ORacaDTO save(@RequestBody IRacaDTO racaDTO) {
         return this.racaAS.save(racaDTO);
     }
 
     @PutMapping("/{id}")
-    public RacaDTO update(@PathVariable("id") Integer id, @RequestBody RacaDTO racaDTO) {
+    public ORacaDTO update(@PathVariable("id") Integer id, @RequestBody IRacaDTO racaDTO) {
         return this.racaAS.update(id, racaDTO);
     }
 }

@@ -1,4 +1,4 @@
-package br.com.rpg.dto;
+package br.com.rpg.dto.output;
 
 import lombok.*;
 
@@ -12,11 +12,13 @@ import java.util.Date;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 @ToString
-public class UsuarioDTO {
+public class ORPGDTO {
 
     private Integer id;
     private String nome;
-    private String email;
-    private String senha;
+    private String descricao;
+
+    private Date created_at;
+    private Date updated_at;
 
 }

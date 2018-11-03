@@ -1,7 +1,8 @@
 package br.com.rpg.as;
 
 import br.com.rpg.domain.RPG;
-import br.com.rpg.dto.RPGDTO;
+import br.com.rpg.dto.input.IRPGDTO;
+import br.com.rpg.dto.output.ORPGDTO;
 import br.com.rpg.service.RPGService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -23,15 +24,15 @@ public class RPGAS {
     private ConverterMapper mapper;
 
     @Transactional(readOnly = true)
-    public List<RPGDTO> findAll(){
+    public List<ORPGDTO> findAll(){
         List<RPG> rpgs = this.rpgService.findAll();
-        return this.mapper.mapAsList(rpgs, RPGDTO.class);
+        return this.mapper.mapAsList(rpgs, ORPGDTO.class);
     }
 
     @Transactional(readOnly = true)
-    public RPGDTO findById(Integer id){
+    public ORPGDTO findById(Integer id){
         RPG rpg = this.rpgService.findById(id);
-        return mapper.map(rpg, RPGDTO.class);
+        return mapper.map(rpg, ORPGDTO.class);
     }
 
     @Transactional
@@ -40,18 +41,24 @@ public class RPGAS {
     }
 
     @Transactional
-    public RPGDTO save(RPGDTO rpgdto){
-        RPG rpg = this.mapper.map(rpgdto, RPG.class);
+    public ORPGDTO save(IRPGDTO rpgDTO){
+        RPG rpg = this.mapper.map(rpgDTO, RPG.class);
         rpg = this.rpgService.save(rpg);
-        return this.mapper.map(rpg, RPGDTO.class);
+        return this.mapper.map(rpg, ORPGDTO.class);
     }
 
     @Transactional
-    public RPGDTO update(Integer id, RPGDTO rpgDTO) {
+    public ORPGDTO update(Integer id, IRPGDTO rpgDTO) {
+        validar(id);
+        RPG rpg = this.mapper.map(rpgDTO, RPG.class);
+        rpg.setId(id);
+        rpg = this.rpgService.save(rpg);
+        return this.mapper.map(rpg, ORPGDTO.class);
+    }
+
+    private void validar(Integer id) {
         throwIf(id, Objects::isNull, "ID RPG can not be null");
         boolean existRPG = this.rpgService.existRPG(id);
         throwIf(existRPG, Boolean.FALSE::equals, "RPG does not already exist");
-        rpgDTO.setId(id);
-        return this.save(rpgDTO);
     }
 }

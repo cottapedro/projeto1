@@ -1,8 +1,8 @@
 package br.com.rpg.api;
 
 import br.com.rpg.as.RPGAS;
-import br.com.rpg.dto.IdDTO;
-import br.com.rpg.dto.RPGDTO;
+import br.com.rpg.dto.input.IRPGDTO;
+import br.com.rpg.dto.output.ORPGDTO;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -18,27 +18,27 @@ public class RPGAPI {
     RPGAS rpgAS;
 
     @GetMapping
-    public List<RPGDTO> findAll() {
+    public List<ORPGDTO> findAll() {
         return this.rpgAS.findAll();
     }
 
     @GetMapping("/{id}")
-    public RPGDTO findById(@PathVariable("id") Integer id) {
+    public ORPGDTO findById(@PathVariable("id") Integer id) {
         return this.rpgAS.findById(id);
     }
 
     @DeleteMapping
-    public void deleteById(@RequestBody IdDTO id) {
-        this.rpgAS.deleteById(id.getId());
+    public void deleteById(@RequestBody Integer id) {
+        this.rpgAS.deleteById(id);
     }
 
     @PostMapping
-    public RPGDTO save(@RequestBody RPGDTO rpgDTO) {
+    public ORPGDTO save(@RequestBody IRPGDTO rpgDTO) {
         return this.rpgAS.save(rpgDTO);
     }
 
     @PutMapping("/{id}")
-    public RPGDTO update(@PathVariable("id") Integer id, @RequestBody RPGDTO rpgDTO) {
+    public ORPGDTO update(@PathVariable("id") Integer id, @RequestBody IRPGDTO rpgDTO) {
         return this.rpgAS.update(id, rpgDTO);
     }
 }
