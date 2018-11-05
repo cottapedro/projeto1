@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <!--  <img src="././assets/img/epicquest.png"/> -->
   <div class="field">
-    <label class="label">Nome</label>
+    <label class="label">Login</label>
     <div class="control">
       <input class="input" type="text" formControlName="username" placeholder="Úsuario">
     </div>

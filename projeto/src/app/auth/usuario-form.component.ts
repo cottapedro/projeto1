@@ -9,7 +9,7 @@ import { Usuario } from './services/usuario';
   template: `
     <div class="casca">
     <h2>Componente do Form de Usuario</h2>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form [formGroup]="form" action="http://localhost:8080/login" method="post">
       <!-- <div *ngIf="nome?.invalid"> Minimo: 2 caracters </div> -->
       <div class="field">
         <label class="label">Nome</label>
@@ -17,6 +17,12 @@ import { Usuario } from './services/usuario';
           <input class="input" type="text" formControlName="nome" placeholder="Nome">
         </div>
       </div>
+      <div class="field">
+      <label class="label">Login</label>
+      <div class="control">
+        <input class="input" type="text" formControlName="login" placeholder="Senha">
+      </div>
+    </div>
       <div class="field">
         <label class="label">Senha</label>
         <div class="control">
@@ -75,6 +81,7 @@ export class UsuarioFormComponent implements OnInit, AfterViewInit {
     this.form = new FormGroup({
       id: new FormControl(null),
       nome: new FormControl('', Validators.minLength(2)),
+      login: new FormControl(''),
       senha: new FormControl(''),
       email: new FormControl(''),
     });
@@ -91,6 +98,7 @@ export class UsuarioFormComponent implements OnInit, AfterViewInit {
     this.usuarioService.findUsuarioById(idUsuario).subscribe(e=>{
       console.log('usuario por id:', e);
       this.form.get('id').setValue(e.id);
+      this.form.get('login').setValue(e.login);
       this.form.get('nome').setValue(e.nome);
       this.form.get('email').setValue(e.email);
       this.form.get('senha').setValue(e.senha);
@@ -102,6 +110,7 @@ export class UsuarioFormComponent implements OnInit, AfterViewInit {
     let usuario =  <Usuario>{
       id: this.form.value.id,
       nome: this.form.value.nome,
+      login: this.form.value.login,
       senha: this.form.value.senha,
       email: this.form.value.email
      }

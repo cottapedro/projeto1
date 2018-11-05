@@ -18,4 +18,5 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     @Query("SELECT u.created_at FROM Usuario u WHERE u.id = :id")
     public Date dataCriacao(@Param("id") Integer id);
 
+    Usuario findByLogin(String login);
 }

@@ -5,6 +5,7 @@ import br.com.rpg.domain.Usuario;
 import br.com.rpg.repository.UsuarioRepository;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,6 +40,7 @@ public class UsuarioService {
     @Transactional
     public Usuario save(Usuario usuario){
         this.validarUsuario(usuario);
+        this.codificarSenha(usuario);
         return this.usuarioRepository.save(this.preencheData(usuario));
     }
 
@@ -62,6 +64,12 @@ public class UsuarioService {
             usuario.setCreated_at(usuarioRepository.dataCriacao(usuario.getId()));
         }
         usuario.setUpdated_at(new Date());
+        return usuario;
+    }
+
+    private Usuario codificarSenha(Usuario usuario){
+        String senha = usuario.getSenha();
+        usuario.setSenha(new BCryptPasswordEncoder().encode(senha));
         return usuario;
     }
 

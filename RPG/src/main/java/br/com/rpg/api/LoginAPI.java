@@ -1,17 +1,19 @@
 package br.com.rpg.api;
 
+import br.com.rpg.config.Global;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletResponse;
 
 
 @RequiredArgsConstructor
 @RestController
 public class LoginAPI {
 
-    @RequestMapping(value="/login",  method= RequestMethod.GET)
-    public String login(){
-        return "localhost:4200/login";
+    @GetMapping(value="/login")
+    public void login(HttpServletResponse httpResponse)throws Exception {
+        httpResponse.sendRedirect(Global.url + "/login");
     }
 }
