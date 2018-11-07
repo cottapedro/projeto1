@@ -40,7 +40,6 @@ import { Router } from '@angular/router';
   `
 })
 export class UsuarioListComponent implements OnInit {
-
   usuarios: Usuario[];
   constructor(
     private router: Router,
