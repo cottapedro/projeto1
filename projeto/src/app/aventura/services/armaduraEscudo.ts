@@ -1,8 +1,8 @@
 export interface ArmaduraEscudo {
     id?: number;
     nome: string;
-    bonusCa: number;
-    bonusMaxDes?: number;
+    bonusCA: number;
+    maximoDestreza?: number;
     penalidade?: number;
     categoria: string;
     peso: number;

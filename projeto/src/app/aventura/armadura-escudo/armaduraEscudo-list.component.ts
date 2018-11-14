@@ -14,17 +14,21 @@ import { ArmaduraEscudo } from '../services/armaduraEscudo';
         <tr>
           <th>ID</th>
           <th>nome</th>
+          <th>bonus de Ca</th>
+          <th>bonus Max. de Des.</th>
+          <th>penalidade</th>
+          <th>categoria</th>
+          <th>peso</th>
           <th>descrição</th>
-          <th>rpg</th>
-          <th>opcões</th>
+          <th>opções</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let armaduraEscudo of armaduraEscudo">
           <td>{{armaduraEscudo.id}}</td>
           <td>{{armaduraEscudo.nome}}</td>
-          <td>{{armaduraEscudo.bonusCa}}</td>
-          <td>{{armaduraEscudo.bonusMaxDes}}</td>
+          <td>{{armaduraEscudo.bonusCA}}</td>
+          <td>{{armaduraEscudo.maximoDestreza}}</td>
           <td>{{armaduraEscudo.penalidade}}</td>
           <td>{{armaduraEscudo.categoria}}</td>
           <td>{{armaduraEscudo.peso}}</td>
@@ -62,6 +66,9 @@ export class ArmaduraEscudoListComponent implements OnInit {
   }
 
   removerArmaduraEscudo(id:number){
-    this.aventuraService.removerArmaduraEscudo(id).subscribe(e=>{});
+    this.aventuraService.removerArmaduraEscudo(id).subscribe(e=>{
+      alert('armadura/escudo excluido com sucesso!');
+      this.ngOnInit();
+    });
   }
 }
