@@ -75,7 +75,7 @@ export class AventuraService {
         let headers      = new Headers({ 'Content-Type': 'application/json' });
         let options       = new RequestOptions({ headers: headers });
 
-        return this.http.post(`${url}/Pericia`, bodyString, options)
+        return this.http.post(`${url}/pericia`, bodyString, options)
                          .map(res => res.json())
                          .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
                          .subscribe();
@@ -83,7 +83,7 @@ export class AventuraService {
 
 
 findAllArmaduraEscudo():Observable<ArmaduraEscudo[]>{
-  return this.http.get(`${url}/armaduraEscudo`).map(res => res.json());
+  return this.http.get(`${url}/armadura-escudo`).map(res => res.json());
 }
 
 salvarArmaduraEscudo(armaduraEscudo:ArmaduraEscudo){
@@ -91,7 +91,7 @@ salvarArmaduraEscudo(armaduraEscudo:ArmaduraEscudo){
       let headers      = new Headers({ 'Content-Type': 'application/json' });
       let options       = new RequestOptions({ headers: headers });
 
-      return this.http.post(`${url}/ArmaduraEscudo`, bodyString, options)
+      return this.http.post(`${url}/armadura-escudo`, bodyString, options)
                        .map(res => res.json())
                        .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
                        .subscribe();
