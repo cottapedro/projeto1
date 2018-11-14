@@ -24,7 +24,7 @@ export class AventuraService {
         return this.http.post(`${url}/rpg`, bodyString, options)
                          .map(res => res.json())
                          .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
-                         .subscribe(()=>{alert('raça cadastrada com sucesso!'));
+                         .subscribe(()=>{alert('rpg cadastrada com sucesso!')});
   }
 
   findRpgById(id: number):Observable<Rpg>{
