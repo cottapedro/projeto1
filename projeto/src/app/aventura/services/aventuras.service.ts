@@ -8,14 +8,13 @@ import { Raca } from './raca';
 import {Pericia} from './pericia';
 import {ArmaduraEscudo} from './armaduraEscudo';
 import { HabilidadesRaca } from './habilidadeRaca';
-import { RpgListComponent } from '../rpg/rpg-list.component';
 
 const url = 'http://localhost:8080';
 
 @Injectable()
 export class AventuraService {
 
-  constructor(private http: Http, public rpgListComponent: RpgListComponent) { }
+  constructor(private http: Http) { }
 
   salvarRpg(item:Rpg){
     let bodyString = JSON.stringify(item);
