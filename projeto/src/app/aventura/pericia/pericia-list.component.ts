@@ -57,5 +57,9 @@ export class PericiaListComponent implements OnInit {
   }
 
   removerPericia(id:number){
+    this.aventuraService.removerPericia(id).subscribe(e=>{
+      alert('pericia excluida com sucesso!');
+      this.ngOnInit();
+    });
   }
 }

@@ -22,7 +22,7 @@ import { Pericia } from '../services/pericia';
     ngOnInit() {
       this.form = this.fb.group({
         nome: [{value: null, disabled: false}, [Validators.required]],
-        descricao: [{value: null, disabled: false}, [Validators.required]]
+        descricao: [{value: null, disabled: false}, [Validators.required]],
         modificador: [{value: null, disabled: false}, [Validators.required]]
       })
     }
