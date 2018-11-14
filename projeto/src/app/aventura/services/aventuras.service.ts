@@ -35,6 +35,11 @@ export class AventuraService {
     return this.http.get(`${url}/rpg`).map(res => res.json());
   }
 
+  removerRpg(id: number){
+    return this.http.delete(`${url}/rpg`, { body: JSON.stringify(id) });
+    //return this.http.delete(`${url}/usuario`, { body: {'id':id} });
+  }
+
   findAllRacas():Observable<Raca[]>{
     return this.http.get(`${url}/raca`).map(res => res.json());
   }

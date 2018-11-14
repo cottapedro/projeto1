@@ -28,7 +28,7 @@ import { HabilidadesRaca } from '../services/habilidadeRaca';
           <td>{{rpg.id}}</td>
           <td>{{rpg.nome}}</td>
           <td>{{rpg.descricao}}</td>
-          <td>{{rpg.tipo}}</td>
+          <td>{{rpg.tipoHabilidade}}</td>
           <td>{{rpg.valor}}</td>
           <td>{{rpg.skill}}</td>
           <td>{{rpg.raca.nome}}</td>

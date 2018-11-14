@@ -58,6 +58,6 @@ export class RpgListComponent implements OnInit {
   }
 
   removerRpg(id:number){
-    //this.aventuraService.removerUsuario(id).subscribe(e=>{});
+    this.aventuraService.removerRpg(id).subscribe(e=>{});
   }
 }
