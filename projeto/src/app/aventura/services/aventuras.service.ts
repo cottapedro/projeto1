@@ -8,13 +8,14 @@ import { Raca } from './raca';
 import {Pericia} from './pericia';
 import {ArmaduraEscudo} from './armaduraEscudo';
 import { HabilidadesRaca } from './habilidadeRaca';
+import { RpgListComponent } from '../rpg/rpg-list.component';
 
 const url = 'http://localhost:8080';
 
 @Injectable()
 export class AventuraService {
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, public rpgListComponent: RpgListComponent) { }
 
   salvarRpg(item:Rpg){
     let bodyString = JSON.stringify(item);
@@ -42,7 +43,12 @@ export class AventuraService {
     return this.http.delete(`${url}/rpg`, new RequestOptions({
       headers: headers,
       body: bodyString
-   }));
+   })).catch((error:any) => Observable.throw(error.json().error || 'Server error'))
+   .subscribe(()=>{
+     alert('rpg excluido com sucesso!');
+     this.rpgListComponent.ngOnInit();
+    });
+   ;
     //return this.http.delete(`${url}/usuario`, { body: {'id':id} });
   }
 
