@@ -3,7 +3,7 @@ import { Raca } from './raca';
 export interface HabilidadesRaca {
     id?: number;
     nome: string;
-    tipoHabilidade: string;
+    tipoHabilidade: any;
     valor: number;
     skill: string;
     raca: Raca;

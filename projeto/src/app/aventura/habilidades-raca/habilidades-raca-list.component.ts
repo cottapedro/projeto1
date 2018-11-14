@@ -56,6 +56,7 @@ export class HabilidadesRacaListComponent implements OnInit {
 
   ngOnInit() {
     this.aventuraService.findAllHabilidadesRaca().subscribe(e=>{
+      console.log(e);
       this.lstHabilidadesRaca = e;
     })
   }

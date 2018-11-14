@@ -11,6 +11,7 @@ import { Raca } from '../services/raca';
   })
   export class HabilidadesRacaFormComponent implements OnInit {
 
+    lstRacas: Raca[];
     form: FormGroup;
   
     constructor(
@@ -18,6 +19,12 @@ import { Raca } from '../services/raca';
       private aventuraService: AventuraService
 
     ) {
+    }
+
+    carregaListaDeRacas(){
+      this.aventuraService.findAllRacas().subscribe(e=>{
+          this.lstRacas = e;
+      })
     }
    
     ngOnInit() {
@@ -29,6 +36,7 @@ import { Raca } from '../services/raca';
         descricao: [{value: null, disabled: false}, [Validators.required]],
         raca: [{value: null, disabled: false}, [Validators.required]]
       })
+      this.carregaListaDeRacas();
     }
     
     onSubmit(): void{
