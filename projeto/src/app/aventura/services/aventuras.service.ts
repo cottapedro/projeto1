@@ -50,6 +50,16 @@ export class AventuraService {
     return this.http.get(`${url}/raca`).map(res => res.json());
   }
 
+  removerRaca(id: number){
+    let bodyString = JSON.stringify(id);
+        let headers      = new Headers({ 'Content-Type': 'application/json' });
+
+    return this.http.delete(`${url}/raca`, new RequestOptions({
+      headers: headers,
+      body: bodyString
+   }));
+    //return this.http.delete(`${url}/usuario`, { body: {'id':id} });
+  }
   
   salvarRaca(raca:Raca){
     let bodyString = JSON.stringify(raca);
@@ -74,11 +84,26 @@ export class AventuraService {
     return this.http.post(`${url}/habilidade-raca`, bodyString, options)
     .map(res => res.json())
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
-    .subscribe();
+    .subscribe(()=>{alert('habilidade de raça cadastrada com sucesso!')});
+  }
+
+  removerHabilidadeRaca(id: number){
+    let bodyString = JSON.stringify(id);
+        let headers      = new Headers({ 'Content-Type': 'application/json' });
+
+    return this.http.delete(`${url}/habilidade-raca`, new RequestOptions({
+      headers: headers,
+      body: bodyString
+   }));
+    //return this.http.delete(`${url}/usuario`, { body: {'id':id} });
   }
   
   findAllPericias():Observable<Pericia[]>{
     return this.http.get(`${url}/pericia`).map(res => res.json());
+  }
+
+  findPericiaById(id: number):Observable<Rpg>{
+    return this.http.get(`${url}/pericia/${id}`).map(res => res.json());
   }
   
   salvarPericia(pericia:Pericia){
@@ -89,7 +114,18 @@ export class AventuraService {
         return this.http.post(`${url}/pericia`, bodyString, options)
                          .map(res => res.json())
                          .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
-                         .subscribe();
+                         .subscribe(()=>{alert('pericia cadastrada com sucesso!')});
+  }
+
+  removerPericia(id: number){
+    let bodyString = JSON.stringify(id);
+        let headers      = new Headers({ 'Content-Type': 'application/json' });
+
+    return this.http.delete(`${url}/pericia`, new RequestOptions({
+      headers: headers,
+      body: bodyString
+   }));
+    //return this.http.delete(`${url}/usuario`, { body: {'id':id} });
   }
 
 
@@ -105,8 +141,18 @@ salvarArmaduraEscudo(armaduraEscudo:ArmaduraEscudo){
       return this.http.post(`${url}/armadura-escudo`, bodyString, options)
                        .map(res => res.json())
                        .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
-                       .subscribe();
+                       .subscribe(()=>{alert('armadura/escudo cadastrada com sucesso!')});
 }
 
+removerArmaduraEscudo(id: number){
+  let bodyString = JSON.stringify(id);
+      let headers      = new Headers({ 'Content-Type': 'application/json' });
+
+  return this.http.delete(`${url}/armadura-escudo`, new RequestOptions({
+    headers: headers,
+    body: bodyString
+ }));
+  //return this.http.delete(`${url}/usuario`, { body: {'id':id} });
+}
 
 }

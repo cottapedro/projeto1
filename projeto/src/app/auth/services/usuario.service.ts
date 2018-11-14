@@ -37,7 +37,13 @@ export class UsuarioService {
   }
 
   removerUsuario(id: number){
-    return this.http.delete(`${url}/usuario`, { body: JSON.stringify(id) });
+    let bodyString = JSON.stringify(id);
+        let headers      = new Headers({ 'Content-Type': 'application/json' });
+
+    return this.http.delete(`${url}/usuario`, new RequestOptions({
+      headers: headers,
+      body: bodyString
+   }));
     //return this.http.delete(`${url}/usuario`, { body: {'id':id} });
   }
 

@@ -62,6 +62,6 @@ export class ArmaduraEscudoListComponent implements OnInit {
   }
 
   removerArmaduraEscudo(id:number){
-    //this.aventuraService.removerUsuario(id).subscribe(e=>{});
+    this.aventuraService.removerArmaduraEscudo(id).subscribe(e=>{});
   }
 }

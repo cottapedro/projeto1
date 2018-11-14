@@ -66,6 +66,6 @@ export class HabilidadesRacaListComponent implements OnInit {
   }
 
   removerRpg(id:number){
-    //this.aventuraService.removerUsuario(id).subscribe(e=>{});
+    this.aventuraService.removerHabilidadeRaca(id).subscribe(e=>{});
   }
 }

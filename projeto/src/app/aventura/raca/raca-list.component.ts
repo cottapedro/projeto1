@@ -59,6 +59,6 @@ export class RacaListComponent implements OnInit {
   }
 
   removerRaca(id:number){
-    //this.aventuraService.removerUsuario(id).subscribe(e=>{});
+    this.aventuraService.removerRaca(id).subscribe(e=>{});
   }
 }
