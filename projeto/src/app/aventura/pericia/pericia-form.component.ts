@@ -23,6 +23,7 @@ import { Pericia } from '../services/pericia';
       this.form = this.fb.group({
         nome: [{value: null, disabled: false}, [Validators.required]],
         descricao: [{value: null, disabled: false}, [Validators.required]]
+        modificador: [{value: null, disabled: false}, [Validators.required]]
       })
     }
 
@@ -33,7 +34,8 @@ import { Pericia } from '../services/pericia';
      let pericia =  <Pericia>{
       id: null,
       nome: this.form.value.nome,
-      descricao: this.form.value.descricao
+      descricao: this.form.value.descricao,
+      modificador: this.form.value.descricao
      }
       this.aventuraService.salvarPericia(pericia);
     }
