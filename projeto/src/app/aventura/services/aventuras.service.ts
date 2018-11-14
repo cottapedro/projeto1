@@ -38,9 +38,11 @@ export class AventuraService {
   removerRpg(id: number){
     let bodyString = JSON.stringify(id);
         let headers      = new Headers({ 'Content-Type': 'application/json' });
-        let options      = new RequestOptions({ headers: headers });
 
-    return this.http.delete(`${url}/rpg`, bodyString);
+    return this.http.delete(`${url}/rpg`, new RequestOptions({
+      headers: headers,
+      body: bodyString
+   }));
     //return this.http.delete(`${url}/usuario`, { body: {'id':id} });
   }
 
