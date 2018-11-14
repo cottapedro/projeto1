@@ -20,7 +20,7 @@ import { Usuario } from './services/usuario';
       <div class="field">
       <label class="label">Login</label>
       <div class="control">
-        <input class="input" type="text" formControlName="login" placeholder="Senha">
+        <input class="input" type="text" formControlName="login" placeholder="Login">
       </div>
     </div>
       <div class="field">

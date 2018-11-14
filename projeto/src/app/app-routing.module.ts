@@ -15,6 +15,10 @@ import { RacaListComponent } from './aventura/raca/raca-list.component';
 import { RpgListComponent } from './aventura/rpg/rpg-list.component';
 import { HabilidadesRacaListComponent } from './aventura/habilidades-raca/habilidades-raca-list.component';
 import { HabilidadesRacaFormComponent } from './aventura/habilidades-raca/habilidades-raca-form.component';
+import { PericiaListComponent } from './aventura/pericia/pericia-list.component';
+import { PericiaFormComponent } from './aventura/pericia/pericia-form.component';
+import { ArmaduraEscudoListComponent } from './aventura/armadura-escudo/armaduraEscudo-list.component';
+import { ArmaduraEscudoFormComponent } from './aventura/armadura-escudo/armaduraEscudo-form.component';
 
 // const ACCESS_DENIED_ROUTE: Route = {
 //   path: 'access-denied',
@@ -47,6 +51,10 @@ const APP_ROUTE: Route = {
   ,{path: 'raca/form', component: RacaFormComponent}
   ,{path: 'habilidades-raca/list', component: HabilidadesRacaListComponent}
   ,{path: 'habilidades-raca/form', component: HabilidadesRacaFormComponent}
+  ,{path: 'pericia/list', component: PericiaListComponent}
+  ,{path: 'pericia/form', component: PericiaFormComponent}
+  ,{path: 'armaduraEscudo/list', component: ArmaduraEscudoListComponent}
+  ,{path: 'armaduraEscudo/form', component: ArmaduraEscudoFormComponent}
   
   ,{path: 'principal', loadChildren: ()=> AventuraModule
   }

@@ -15,6 +15,10 @@ import { RpgListComponent } from './rpg/rpg-list.component';
 import { RacaListComponent } from './raca/raca-list.component';
 import { HabilidadesRacaListComponent } from './habilidades-raca/habilidades-raca-list.component';
 import { HabilidadesRacaFormComponent } from './habilidades-raca/habilidades-raca-form.component';
+import { PericiaFormComponent } from './pericia/pericia-form.component';
+import { PericiaListComponent } from './pericia/pericia-list.component';
+import { ArmaduraEscudoListComponent } from './armadura-escudo/armaduraEscudo-list.component';
+import { ArmaduraEscudoFormComponent } from './armadura-escudo/armaduraEscudo-form.component';
 
 @NgModule({
   imports: [
@@ -34,7 +38,11 @@ import { HabilidadesRacaFormComponent } from './habilidades-raca/habilidades-rac
       RacaFormComponent,
       RacaListComponent,
       HabilidadesRacaListComponent,
-      HabilidadesRacaFormComponent
+      HabilidadesRacaFormComponent,
+      PericiaListComponent,
+      PericiaFormComponent,
+      ArmaduraEscudoListComponent,
+      ArmaduraEscudoFormComponent
     ],
     providers: [AventuraService],  
   exports: [

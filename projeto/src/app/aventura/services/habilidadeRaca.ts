@@ -1,8 +1,11 @@
-import { Rpg } from "./rpg";
+import { Raca } from './raca';
 
-export interface Raca {
+export interface HabilidadesRaca {
     id?: number;
     nome: string;
+    tipoHabilidade: string;
+    valor: number;
+    skill: string;
+    raca: Raca;
     descricao: string;
-    rpg: Rpg;
 }

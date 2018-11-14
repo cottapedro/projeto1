@@ -1,0 +1,57 @@
+<div class="casca">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <label class="label">Nome</label>
+        <div class="control">
+          <input class="input" type="text" formControlName="nome" placeholder="Nome da Raça">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Bonus de CA</label>
+        <div class="control">
+          <input class="input" type="text" formControlName="bonusCa" placeholder="Bonus de CA">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Bonus Maximo de Destreza</label>
+        <div class="control">
+          <input class="input" type="text" formControlName="bonusMaxDes" placeholder="Bonus Máximo de Destreza">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Penalidade</label>
+        <div class="control">
+          <input class="input" type="text" formControlName="penalidade" placeholder="Penalidade">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Categoria</label>
+        <div class="control">
+          <div class="select">
+            <select formControlName="categoria">
+                <option value='1'>Leve</option>
+                <option value='2'>Média</option>
+                <option value='3'>Pesada</option>
+            </select>
+        </div>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Peso</label>
+        <div class="control">
+          <input class="input" type="text" formControlName="peso" placeholder="Peso da Armadura/Escudo">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Descrição</label>
+        <div class="control">
+          <textarea class="textarea" formControlName="descricao" placeholder="Descrição da Raça"></textarea>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <button class="button is-primary" type="submit">Salvar</button>
+        </div>
+      </div>
+    </form>
+    </div>

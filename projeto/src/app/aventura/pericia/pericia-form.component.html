@@ -1,0 +1,27 @@
+<div class="casca">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <label class="label">Nome</label>
+        <div class="control">
+          <input class="input" type="text" formControlName="nome" placeholder="Nome da Pericia">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Modificador</label>
+        <div class="control">
+          <input class="input" type="text" formControlName="modificador" placeholder="Modificador">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Descrição</label>
+        <div class="control">
+          <textarea class="textarea" formControlName="descricao" placeholder="Descrição da Pericia"></textarea>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <button class="button is-primary" type="submit">Salvar</button>
+        </div>
+      </div>
+    </form>
+    </div>
