@@ -58,6 +58,9 @@ export class RpgListComponent implements OnInit {
   }
 
   removerRpg(id:number){
-    this.aventuraService.removerRpg(id).subscribe(e=>{});
+    this.aventuraService.removerRpg(id).subscribe(e=>{
+      alert('rpg excluido com sucesso!');
+      this.ngOnInit();
+    });
   }
 }

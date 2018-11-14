@@ -44,11 +44,6 @@ export class AventuraService {
       headers: headers,
       body: bodyString
    })).catch((error:any) => Observable.throw(error.json().error || 'Server error'))
-   .subscribe(()=>{
-     alert('rpg excluido com sucesso!');
-     this.rpgListComponent.ngOnInit();
-    });
-   ;
     //return this.http.delete(`${url}/usuario`, { body: {'id':id} });
   }
 
