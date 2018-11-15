@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angu
 import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
 import { AventuraService } from '../services/aventuras.service';
 import { Pericia } from '../services/pericia';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-pericia-form',
@@ -14,7 +15,7 @@ import { Pericia } from '../services/pericia';
   
     constructor(
       public fb: FormBuilder,
-      private route: ActivatedRoute,,
+      private route: ActivatedRoute,
       private aventuraService: AventuraService
 
     ) {
