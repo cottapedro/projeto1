@@ -22,8 +22,8 @@ import { ArmaduraEscudo } from '../services/armaduraEscudo';
     ngOnInit() {
       this.form = this.fb.group({
         nome: [{value: null, disabled: false}, [Validators.required]],
-        bonusCa: [{value: null, disabled: false}, [Validators.required]],
-        bonusMaxDes: [{value: null, disabled: false}, [Validators.required]],
+        bonusCA: [{value: null, disabled: false}, [Validators.required]],
+        maximoDestreza: [{value: null, disabled: false}, [Validators.required]],
         penalidade: [{value: null, disabled: false}, [Validators.required]],
         categoria: [{value: null, disabled: false}, [Validators.required]],
         peso: [{value: null, disabled: false}, [Validators.required]],
@@ -38,8 +38,8 @@ import { ArmaduraEscudo } from '../services/armaduraEscudo';
      let armaduraEscudo =  <ArmaduraEscudo>{
       id: null,
       nome: this.form.value.nome,
-      bonusCa: this.form.value.bonusCA,
-      bonusMaxDes: this.form.value.bonusMaxDes,
+      bonusCA: this.form.value.bonusCA,
+      maximoDestreza: this.form.value.maximoDestreza,
       penalidade: this.form.value.penalidade,
       categoria: this.form.value.categoria,
       peso: this.form.value.peso,
