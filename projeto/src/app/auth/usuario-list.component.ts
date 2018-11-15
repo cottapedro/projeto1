@@ -59,6 +59,9 @@ export class UsuarioListComponent implements OnInit {
   }
 
   removerUsuario(id:number){
-    this.usuarioService.removerUsuario(id).subscribe(e=>{});
+    this.usuarioService.removerUsuario(id).subscribe(e=>{
+      alert('usuario excluido com sucesso!');
+      this.ngOnInit();
+    });
   }
 }

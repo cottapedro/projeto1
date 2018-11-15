@@ -59,6 +59,9 @@ export class RacaListComponent implements OnInit {
   }
 
   removerRaca(id:number){
-    this.aventuraService.removerRaca(id).subscribe(e=>{});
+    this.aventuraService.removerRaca(id).subscribe(e=>{
+      alert('raça excluida com sucesso!');
+      this.ngOnInit();
+    });
   }
 }

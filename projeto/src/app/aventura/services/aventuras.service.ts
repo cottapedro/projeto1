@@ -102,7 +102,7 @@ export class AventuraService {
     return this.http.get(`${url}/pericia`).map(res => res.json());
   }
 
-  findPericiaById(id: number):Observable<Rpg>{
+  findPericiaById(id: number):Observable<Pericia>{
     return this.http.get(`${url}/pericia/${id}`).map(res => res.json());
   }
   

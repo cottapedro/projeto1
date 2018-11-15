@@ -14,6 +14,7 @@ import { Pericia } from '../services/pericia';
   
     constructor(
       public fb: FormBuilder,
+      private route: ActivatedRoute,,
       private aventuraService: AventuraService
 
     ) {
@@ -25,9 +26,22 @@ import { Pericia } from '../services/pericia';
         descricao: [{value: null, disabled: false}, [Validators.required]],
         modificador: [{value: null, disabled: false}, [Validators.required]]
       })
+
+      this.route.params.subscribe(e=>{
+        if(e.id){
+          this.atualizaForm(e.id);
+        }
+      });
     }
 
-  
+    atualizaForm(idPericia: number){
+      this.aventuraService.findPericiaById(idPericia).subscribe(e=>{
+        this.form.get('id').setValue(e.id);
+        this.form.get('nome').setValue(e.nome);
+        this.form.get('descricao').setValue(e.descricao);
+        this.form.get('modificador').setValue(e.modificador);
+      });
+    }
 
     onSubmit(): void{
      

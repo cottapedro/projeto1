@@ -53,8 +53,10 @@ const APP_ROUTE: Route = {
   ,{path: 'habilidades-raca/form', component: HabilidadesRacaFormComponent}
   ,{path: 'pericia/list', component: PericiaListComponent}
   ,{path: 'pericia/form', component: PericiaFormComponent}
+  ,{path: 'pericia/form/:id', component: PericiaFormComponent}
   ,{path: 'armaduraEscudo/list', component: ArmaduraEscudoListComponent}
   ,{path: 'armaduraEscudo/form', component: ArmaduraEscudoFormComponent}
+  ,{path: 'armaduraEscudo/form/:id', component: ArmaduraEscudoFormComponent}
   
   ,{path: 'principal', loadChildren: ()=> AventuraModule
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AventuraService } from '../services/aventuras.service';
 import { Pericia } from '../services/pericia';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -43,6 +44,7 @@ export class PericiaListComponent implements OnInit {
 
   pericias: Pericia[];
   constructor(
+    private router: Router,
     private aventuraService: AventuraService
   ) {
   }
@@ -54,7 +56,7 @@ export class PericiaListComponent implements OnInit {
   }
 
   editarPericia(id:number){
-
+    this.router.navigate([`app/pericia/form/${id}`]);
   }
 
   removerPericia(id:number){
