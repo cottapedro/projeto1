@@ -35,7 +35,7 @@ import { Pericia } from '../services/pericia';
       id: null,
       nome: this.form.value.nome,
       descricao: this.form.value.descricao,
-      modificador: this.form.value.descricao
+      modificador: this.form.value.modificador
      }
       this.aventuraService.salvarPericia(pericia);
     }
