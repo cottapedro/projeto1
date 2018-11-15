@@ -23,6 +23,7 @@ import { ActivatedRoute } from '@angular/router';
    
     ngOnInit() {
       this.form = this.fb.group({
+        id: new FormControl(null),
         nome: [{value: null, disabled: false}, [Validators.required]],
         descricao: [{value: null, disabled: false}, [Validators.required]],
         modificador: [{value: null, disabled: false}, [Validators.required]]
