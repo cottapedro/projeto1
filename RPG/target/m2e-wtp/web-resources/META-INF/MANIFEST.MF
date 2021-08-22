@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: pmendes
+Build-Jdk: 16.0.1
+Implementation-Title: RPG
+Implementation-Version: 1.0-SNAPSHOT
+Implementation-Vendor-Id: br.com.RPG
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/RPG
+Created-By: Maven Integration for Eclipse
+
