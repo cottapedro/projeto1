@@ -24,7 +24,7 @@ import { Router } from '@angular/router';
         <tr *ngFor="let pericia of pericias">
           <td>{{pericia.id}}</td>
           <td>{{pericia.nome}}</td>
-          <td>{{pericia.modificador}}</td>
+          <td>{{pericia.atributo.nome}}</td>
           <td>{{pericia.descricao}}</td>
           <td>
             <button class="button" (click)="editarPericia(pericia.id)">

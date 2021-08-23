@@ -17,6 +17,8 @@ import { HabilidadesRacaListComponent } from './habilidades-raca/habilidades-rac
 import { HabilidadesRacaFormComponent } from './habilidades-raca/habilidades-raca-form.component';
 import { PericiaFormComponent } from './pericia/pericia-form.component';
 import { PericiaListComponent } from './pericia/pericia-list.component';
+import { AtributoFormComponent } from './atributo/atributo-form.component';
+import { AtributoListComponent } from './atributo/atributo-list.component';
 import { ArmaduraEscudoListComponent } from './armadura-escudo/armaduraEscudo-list.component';
 import { ArmaduraEscudoFormComponent } from './armadura-escudo/armaduraEscudo-form.component';
 
@@ -39,6 +41,8 @@ import { ArmaduraEscudoFormComponent } from './armadura-escudo/armaduraEscudo-fo
       RacaListComponent,
       HabilidadesRacaListComponent,
       HabilidadesRacaFormComponent,
+      AtributoListComponent,
+      AtributoFormComponent,
       PericiaListComponent,
       PericiaFormComponent,
       ArmaduraEscudoListComponent,

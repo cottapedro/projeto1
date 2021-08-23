@@ -1,6 +1,13 @@
 package br.com.rpg.dto.input;
 
-import lombok.*;
+import br.com.rpg.domain.Atributo;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 
 @Getter
@@ -15,6 +22,6 @@ public class IPericiaDTO {
 	private Integer id;
     private String nome;
     private String descricao;
-    private String modificador;
+    private Atributo atributo;
 
 }

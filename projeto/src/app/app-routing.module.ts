@@ -17,6 +17,8 @@ import { HabilidadesRacaListComponent } from './aventura/habilidades-raca/habili
 import { HabilidadesRacaFormComponent } from './aventura/habilidades-raca/habilidades-raca-form.component';
 import { PericiaListComponent } from './aventura/pericia/pericia-list.component';
 import { PericiaFormComponent } from './aventura/pericia/pericia-form.component';
+import { AtributoListComponent } from './aventura/atributo/atributo-list.component';
+import { AtributoFormComponent } from './aventura/atributo/atributo-form.component';
 import { ArmaduraEscudoListComponent } from './aventura/armadura-escudo/armaduraEscudo-list.component';
 import { ArmaduraEscudoFormComponent } from './aventura/armadura-escudo/armaduraEscudo-form.component';
 
@@ -57,6 +59,9 @@ const APP_ROUTE: Route = {
   ,{path: 'armaduraEscudo/list', component: ArmaduraEscudoListComponent}
   ,{path: 'armaduraEscudo/form', component: ArmaduraEscudoFormComponent}
   ,{path: 'armaduraEscudo/form/:id', component: ArmaduraEscudoFormComponent}
+  ,{path: 'atributo/list', component: AtributoListComponent}
+  ,{path: 'atributo/form', component: AtributoFormComponent}
+  ,{path: 'atributo/form/:id', component: AtributoFormComponent}
   
   ,{path: 'principal', loadChildren: ()=> AventuraModule
   }

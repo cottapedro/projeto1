@@ -7,9 +7,13 @@
         </div>
       </div>
       <div class="field">
-        <label class="label">Modificador</label>
+        <label class="label">Modificador de Atributo</label>
         <div class="control">
-          <input class="input" type="text" formControlName="modificador" placeholder="Modificador">
+          <div class="select">
+              <select formControlName="atributo">
+                  <option *ngFor="let atributo of atributos" [ngValue]="atributo">{{atributo.nome}}</option>
+              </select>
+          </div>
         </div>
       </div>
       <div class="field">

@@ -6,6 +6,7 @@ import 'rxjs/add/operator/catch'
 import { Observable } from "rxjs/Rx";
 import { Raca } from './raca';
 import {Pericia} from './pericia';
+import {Atributo} from './atributo';
 import {ArmaduraEscudo} from './armaduraEscudo';
 import { HabilidadesRaca } from './habilidadeRaca';
 
@@ -127,6 +128,37 @@ export class AventuraService {
    }));
     //return this.http.delete(`${url}/usuario`, { body: {'id':id} });
   }
+
+  findAllAtributos():Observable<Atributo[]>{
+    return this.http.get(`${url}/atributo`).map(res => res.json());
+  }
+
+  findAtributoById(id: number):Observable<Atributo>{
+    return this.http.get(`${url}/atributo/${id}`).map(res => res.json());
+  }
+  
+  salvarAtributo(atributo:Atributo){
+    let bodyString = JSON.stringify(atributo);
+        let headers      = new Headers({ 'Content-Type': 'application/json' });
+        let options       = new RequestOptions({ headers: headers });
+
+        return this.http.post(`${url}/atributo`, bodyString, options)
+                         .map(res => res.json())
+                         .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
+                         .subscribe(()=>{alert('atributo cadastrada com sucesso!')});
+  }
+
+  removerAtributo(id: number){
+    let bodyString = JSON.stringify(id);
+        let headers      = new Headers({ 'Content-Type': 'application/json' });
+
+    return this.http.delete(`${url}/atributo`, new RequestOptions({
+      headers: headers,
+      body: bodyString
+   }));
+    //return this.http.delete(`${url}/usuario`, { body: {'id':id} });
+  }
+
 
 
 findAllArmaduraEscudo():Observable<ArmaduraEscudo[]>{

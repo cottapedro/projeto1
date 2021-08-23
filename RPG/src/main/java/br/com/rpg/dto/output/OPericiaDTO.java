@@ -1,8 +1,15 @@
 package br.com.rpg.dto.output;
 
-import lombok.*;
-
 import java.util.Date;
+
+import br.com.rpg.domain.Atributo;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 
 @Getter
@@ -17,7 +24,7 @@ public class OPericiaDTO {
     private Integer id;
     private String nome;
     private String descricao;
-    private Integer modificador;
+    private Atributo atributo;
 
     private Date created_at;
     private Date updated_at;

@@ -1,6 +1,8 @@
+import { Atributo } from "./atributo";
+
 export interface Pericia {
     id?: number;
     nome: string;
-    modificador: string;
+    atributo: Atributo;
     descricao: string;
 }

@@ -17,7 +17,7 @@ import java.util.Date;
 @Entity
 @DynamicUpdate
 @SelectBeforeUpdate
-@Table(name="pericia")
+@Table(name="arma")
 public class Arma extends BaseEntity<Integer> {
     private static final long serialVersionUID = 1L;
 

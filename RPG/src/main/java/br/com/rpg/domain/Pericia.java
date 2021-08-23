@@ -32,8 +32,9 @@ public class Pericia extends BaseEntity<Integer> {
     @Column(name="descricao")
     private String descricao;
 
-    @Column(name = "modificador")
-    private Integer modificador;
+    @ManyToOne
+    @JoinColumn(name = "atributo_id")
+    private Atributo atributo;
 
     @Column(name="created_at", nullable = false)
     private Date created_at;
