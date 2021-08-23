@@ -12,6 +12,7 @@ import lombok.*;
 @ToString
 public class IRPGDTO {
 
+	private Integer id;
     private String nome;
     private String descricao;
 

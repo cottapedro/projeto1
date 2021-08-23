@@ -11,7 +11,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/raca")
+@RequestMapping("**/raca")
 public class RacaAPI {
 
     @NonNull

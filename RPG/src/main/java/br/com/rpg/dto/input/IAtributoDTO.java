@@ -10,11 +10,10 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode()
 @ToString
-public class IRacaDTO {
+public class IAtributoDTO {
 
 	private Integer id;
     private String nome;
-    private String descricao;
-    private IRPGDTO rpg;
+    private String sigla;
 
 }

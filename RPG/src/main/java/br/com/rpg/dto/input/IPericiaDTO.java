@@ -12,6 +12,7 @@ import lombok.*;
 @ToString
 public class IPericiaDTO {
 
+	private Integer id;
     private String nome;
     private String descricao;
     private String modificador;
