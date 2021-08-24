@@ -7,6 +7,7 @@ import org.hibernate.annotations.SelectBeforeUpdate;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -44,6 +45,15 @@ public class HabilidadeRaca extends BaseEntity<Integer> {
     @ManyToOne
     @JoinColumn(name = "raca_id")
     private Raca raca;
+    
+    @ManyToMany
+    @JoinTable(
+	    name = "atributos_habilidade_raca",
+	    joinColumns = @JoinColumn(
+	    name = "habilidade_raca_id", referencedColumnName = "id"),
+	    inverseJoinColumns = @JoinColumn(
+	    name = "atributo_id", referencedColumnName = "id"))
+    private List<Atributo> atributos;
 
     @Column(name="created_at", nullable = false)
     private Date created_at;

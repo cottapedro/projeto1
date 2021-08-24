@@ -28,6 +28,8 @@ import { ActivatedRoute } from '@angular/router';
         id: new FormControl(null),
         nome: [{value: null, disabled: false}, [Validators.required]],
         descricao: [{value: null, disabled: false}, [Validators.required]],
+        somenteTreinada: [{value: null, disabled: false}, [Validators.required]],
+        penalidadeArmadura: [{value: null, disabled: false}, [Validators.required]],
         atributo: [{value: null, disabled: false}, [Validators.required]]
       })
 
@@ -50,7 +52,9 @@ import { ActivatedRoute } from '@angular/router';
         this.form.get('id').setValue(e.id);
         this.form.get('nome').setValue(e.nome);
         this.form.get('descricao').setValue(e.descricao);
-        this.form.get('modificador').setValue(e.atributo);
+        this.form.get('atributo').setValue(e.atributo);
+        this.form.get('somenteTreinada').setValue(e.somenteTreinada);
+        this.form.get('penalidadeArmadura').setValue(e.penalidadeArmadura);
       });
     }
 
@@ -60,6 +64,8 @@ import { ActivatedRoute } from '@angular/router';
       id: null,
       nome: this.form.value.nome,
       descricao: this.form.value.descricao,
+      somenteTreinada: this.form.value.somenteTreinada,
+      penalidadeArmadura: this.form.value.penalidadeArmadura,
       atributo: <Atributo>{
         id: this.form.value.atributo.id,
         nome: this.form.value.atributo.nome,

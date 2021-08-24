@@ -22,6 +22,8 @@ public class IPericiaDTO {
 	private Integer id;
     private String nome;
     private String descricao;
+    private Boolean somenteTreinada;
+    private Boolean penalidadeArmadura;
     private Atributo atributo;
 
 }

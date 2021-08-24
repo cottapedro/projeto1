@@ -1,5 +1,8 @@
 package br.com.rpg.dto.input;
 
+import java.util.List;
+
+import br.com.rpg.domain.Atributo;
 import br.com.rpg.dto.output.ORacaDTO;
 import lombok.*;
 
@@ -18,6 +21,7 @@ public class IHabilidadeRacaDTO {
     private Integer tipoHabilidade;
     private Integer valor;
     private String skill;
+    private List<Atributo> atributos;
     private ORacaDTO raca;
 
 }

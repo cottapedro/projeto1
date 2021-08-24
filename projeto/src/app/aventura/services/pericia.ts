@@ -5,4 +5,6 @@ export interface Pericia {
     nome: string;
     atributo: Atributo;
     descricao: string;
+    somenteTreinada: boolean;
+    penalidadeArmadura: boolean;
 }

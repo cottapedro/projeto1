@@ -24,6 +24,8 @@ public class OPericiaDTO {
     private Integer id;
     private String nome;
     private String descricao;
+    private Boolean penalidadeArmadura;
+    private Boolean somenteTreinada;
     private Atributo atributo;
 
     private Date created_at;

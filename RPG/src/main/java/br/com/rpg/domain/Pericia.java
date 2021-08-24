@@ -31,6 +31,12 @@ public class Pericia extends BaseEntity<Integer> {
 
     @Column(name="descricao")
     private String descricao;
+    
+    @Column(name="penalidade_armadura")
+    private Boolean penalidadeArmadura;
+    
+    @Column(name="somente_treinada")
+    private Boolean somenteTreinada;
 
     @ManyToOne
     @JoinColumn(name = "atributo_id")

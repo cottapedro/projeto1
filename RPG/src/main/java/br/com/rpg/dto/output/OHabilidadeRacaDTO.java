@@ -1,8 +1,16 @@
 package br.com.rpg.dto.output;
 
-import lombok.*;
-
 import java.util.Date;
+import java.util.List;
+
+import br.com.rpg.domain.Atributo;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 
 @Getter
@@ -20,6 +28,7 @@ public class OHabilidadeRacaDTO {
     private Integer tipoHabilidade;
     private Integer valor;
     private String skill;
+    private List<Atributo> atributos;
     private ORacaDTO raca;
 
     private Date created_at;

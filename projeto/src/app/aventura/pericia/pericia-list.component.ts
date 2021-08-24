@@ -16,6 +16,8 @@ import { Router } from '@angular/router';
           <th>ID</th>
           <th>nome</th>
           <th>modificador</th>
+          <th>penalidade de armadura</th>
+          <th>somente treinada</th>
           <th>descrição</th>
           <th>opcões</th>
         </tr>
@@ -25,6 +27,8 @@ import { Router } from '@angular/router';
           <td>{{pericia.id}}</td>
           <td>{{pericia.nome}}</td>
           <td>{{pericia.atributo.nome}}</td>
+          <td>{{pericia.penalidadeArmadura}}</td>
+          <td>{{pericia.somenteTreinada}}</td>
           <td>{{pericia.descricao}}</td>
           <td>
             <button class="button" (click)="editarPericia(pericia.id)">

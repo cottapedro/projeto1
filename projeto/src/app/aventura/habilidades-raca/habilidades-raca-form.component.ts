@@ -1,8 +1,10 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
+import { AtributoListComponent } from '../atributo/atributo-list.component';
 import { AventuraService } from '../services/aventuras.service';
 import { HabilidadesRaca } from '../services/habilidadeRaca';
 import { Raca } from '../services/raca';
+import { Atributo } from '../services/atributo';
 
 @Component({
     selector: 'app-habilidades-raca-form',
@@ -12,6 +14,7 @@ import { Raca } from '../services/raca';
   export class HabilidadesRacaFormComponent implements OnInit {
 
     lstRacas: Raca[];
+    atributos: Atributo[];
     form: FormGroup;
   
     constructor(
@@ -26,6 +29,12 @@ import { Raca } from '../services/raca';
           this.lstRacas = e;
       })
     }
+
+    carregaAtributos(){
+      this.aventuraService.findAllAtributos().subscribe(e=>{
+          this.atributos = e;
+      })
+    }
    
     ngOnInit() {
       this.form = this.fb.group({
@@ -37,6 +46,7 @@ import { Raca } from '../services/raca';
         raca: [{value: null, disabled: false}, [Validators.required]]
       })
       this.carregaListaDeRacas();
+      this.carregaAtributos();
     }
     
     onSubmit(): void{
