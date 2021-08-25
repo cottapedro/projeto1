@@ -18,8 +18,8 @@ import java.util.List;
 @Entity
 @DynamicUpdate
 @SelectBeforeUpdate
-@Table(name="habilidade_raca")
-public class HabilidadeRaca extends BaseEntity<Integer> {
+@Table(name="habilidade")
+public class Habilidade extends BaseEntity<Integer> {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -27,15 +27,28 @@ public class HabilidadeRaca extends BaseEntity<Integer> {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name="nome")
-    private String nome;
+    @Column(name="descricao")
+    private String descricao;
+
+    @Column(name="tipo_habilidade")
+    private Integer tipoHabilidade;
+
+    @Column(name="valor")
+    private Integer valor;
+
+    @Column(name="skill")
+    private String skill;
 
     @ManyToOne
-    @JoinColumn(name = "id_raca")
-    private Raca raca;
+    @JoinColumn(name = "habilidade_raca_id")
+    private HabilidadeRaca habilidadeRaca;
     
-    @OneToMany(mappedBy = "habilidadeRaca")
-	private List<Habilidade> habilidades;
+    @ManyToMany
+    @JoinTable(
+	    name = "atributos_habilidade",
+	    joinColumns = @JoinColumn(name = "habilidade_raca_id", referencedColumnName = "id"),
+	    inverseJoinColumns = @JoinColumn(name = "atributo_id", referencedColumnName = "id"))
+    private List<Atributo> atributos;
 
     @Column(name="created_at", nullable = false)
     private Date created_at;

@@ -2,7 +2,6 @@ package br.com.rpg.dto.input;
 
 import java.util.List;
 
-import br.com.rpg.domain.Habilidade;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -19,11 +18,12 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode()
 @ToString
-public class IHabilidadeRacaDTO {
+public class IHabilidadeDTO {
 
-    private String nome;
-    private IRacaDTO raca;
+    private String descricao;
+    private Integer tipoHabilidade;
     private Integer valor;
-    //private List<IHabilidadeDTO> habilidades;
+    private String skill;
+    private List<IAtributoDTO> atributos;
 
 }

@@ -17,8 +17,14 @@
     <label class="label">Tipo Habilidade</label>
     <div class="select">
         <select formControlName="tipoHabilidade">
-            <option value="1">status</option>
+            <option value="1">atributos</option>
             <option value="2">skill</option>
+            <option value="3">deslocamento</option>
+            <option value="4">arma</option>
+            <option value="5">armadura</option>
+            <option value="6">status</option>
+            <option value="7">pericia</option>
+            <option value="8">resistencia</option>
         </select>
     </div>
   </div>
@@ -45,8 +51,25 @@
   <div class="field">
     <label class="label">Atributos</label>
     <div class="control" *ngFor="let atributo of atributos">
-      <input type="checkbox" formControlName="atributo" >
+      <input type="checkbox" formControlName="atributo">
       <label >{{atributo.nome}}</label>
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Por Nivel</label>
+    <div class="control">
+      <input type="checkbox" formControlName="porNivel" >
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Status</label>
+    <div class="select">
+      <select formControlName="status">
+        <option value="1">Defesa</option>
+        <option value="2">Mana</option>
+        <option value="3">Vida</option>
+        <option value="4">Armadura</option>
+      </select>
     </div>
   </div>
   

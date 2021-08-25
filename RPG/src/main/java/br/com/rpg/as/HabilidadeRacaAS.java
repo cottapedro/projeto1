@@ -1,18 +1,20 @@
 package br.com.rpg.as;
 
-import br.com.rpg.domain.HabilidadeRaca;
-import br.com.rpg.dto.output.OHabilidadeRacaDTO;
-import br.com.rpg.dto.input.IHabilidadeRacaDTO;
-import br.com.rpg.service.HabilidadeRacaService;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import static br.com.rpg.comum.ValidacaoUtils.throwIf;
 
 import java.util.List;
 import java.util.Objects;
 
-import static br.com.rpg.comum.ValidacaoUtils.throwIf;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import br.com.rpg.domain.Habilidade;
+import br.com.rpg.domain.HabilidadeRaca;
+import br.com.rpg.dto.input.IHabilidadeRacaDTO;
+import br.com.rpg.dto.output.OHabilidadeRacaDTO;
+import br.com.rpg.service.HabilidadeRacaService;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
@@ -25,8 +27,8 @@ public class HabilidadeRacaAS {
 
     @Transactional(readOnly = true)
     public List<OHabilidadeRacaDTO> findAll(){
-        List<HabilidadeRaca> habilidadeRacas = this.habilidadeRacaService.findAll();
-        return this.mapper.mapAsList(habilidadeRacas, OHabilidadeRacaDTO.class);
+        List<HabilidadeRaca> habilidades = this.habilidadeRacaService.findAll();
+        return this.mapper.mapAsList(habilidades, OHabilidadeRacaDTO.class);
     }
 
     @Transactional(readOnly = true)
@@ -41,8 +43,8 @@ public class HabilidadeRacaAS {
     }
 
     @Transactional
-    public OHabilidadeRacaDTO save(IHabilidadeRacaDTO habilidadeRacadto){
-        HabilidadeRaca habilidadeRaca = this.mapper.map(habilidadeRacadto, HabilidadeRaca.class);
+    public OHabilidadeRacaDTO save(IHabilidadeRacaDTO habilidadeRacaDTO){
+        HabilidadeRaca habilidadeRaca = this.mapper.map(habilidadeRacaDTO, HabilidadeRaca.class);
         habilidadeRaca = this.habilidadeRacaService.save(habilidadeRaca);
         return this.mapper.map(habilidadeRaca, OHabilidadeRacaDTO.class);
     }

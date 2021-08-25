@@ -50,6 +50,10 @@ import { Atributo } from '../services/atributo';
     }
     
     onSubmit(): void{
+
+      // this.atributos.map(atributo =>{
+      //   this.form.value.atributo
+      // })
      
       let habilidadeRaca =  <HabilidadesRaca>{
 

@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import br.com.rpg.domain.Atributo;
-import br.com.rpg.domain.Habilidade;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -21,12 +20,14 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 @ToString
-public class OHabilidadeRacaDTO {
+public class OHabilidadeDTO {
 
     private Integer id;
-    private String nome;
-    private ORacaDTO raca;
-    private List<OHabilidadeDTO> habilidades;
+    private String descricao;
+    private Integer tipoHabilidade;
+    private Integer valor;
+    private String skill;
+    private List<Atributo> atributos;
 
     private Date created_at;
     private Date updated_at;
