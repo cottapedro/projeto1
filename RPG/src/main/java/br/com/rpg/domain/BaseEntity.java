@@ -6,7 +6,7 @@ public abstract class BaseEntity<ID> implements IEntity<ID> {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public abstract ID getId();
+	public abstract ID getId();	
 
 	@Override
 	public abstract void setId(ID id);

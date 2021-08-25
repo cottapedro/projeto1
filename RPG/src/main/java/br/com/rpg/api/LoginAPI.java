@@ -1,11 +1,12 @@
 package br.com.rpg.api;
 
-import br.com.rpg.config.Global;
-import lombok.RequiredArgsConstructor;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletResponse;
+import br.com.rpg.config.Global;
+import lombok.RequiredArgsConstructor;
 
 
 @RequiredArgsConstructor

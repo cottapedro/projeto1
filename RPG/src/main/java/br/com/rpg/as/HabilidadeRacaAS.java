@@ -8,7 +8,6 @@ import java.util.Objects;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.rpg.domain.Habilidade;
 import br.com.rpg.domain.HabilidadeRaca;
 import br.com.rpg.dto.input.IHabilidadeRacaDTO;
 import br.com.rpg.dto.output.OHabilidadeRacaDTO;

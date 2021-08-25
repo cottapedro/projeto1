@@ -3,8 +3,6 @@ package br.com.rpg.dto.output;
 import java.util.Date;
 import java.util.List;
 
-import br.com.rpg.domain.Atributo;
-import br.com.rpg.domain.Habilidade;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;

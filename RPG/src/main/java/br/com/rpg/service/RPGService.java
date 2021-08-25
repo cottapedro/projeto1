@@ -1,19 +1,19 @@
 package br.com.rpg.service;
 
 
-import br.com.rpg.domain.RPG;
-import br.com.rpg.domain.Usuario;
-import br.com.rpg.repository.RPGRepository;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
+import static br.com.rpg.comum.ValidacaoUtils.throwIf;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-import static br.com.rpg.comum.ValidacaoUtils.throwIf;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+import br.com.rpg.domain.RPG;
+import br.com.rpg.repository.RPGRepository;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor

@@ -1,18 +1,19 @@
 package br.com.rpg.as;
 
+import static br.com.rpg.comum.ValidacaoUtils.throwIf;
+
+import java.util.List;
+import java.util.Objects;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import br.com.rpg.domain.Arma;
 import br.com.rpg.dto.input.IArmaDTO;
 import br.com.rpg.dto.output.OArmaDTO;
 import br.com.rpg.service.ArmaService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.Objects;
-
-import static br.com.rpg.comum.ValidacaoUtils.throwIf;
 
 @Service
 @RequiredArgsConstructor

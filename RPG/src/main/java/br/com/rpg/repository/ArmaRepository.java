@@ -1,12 +1,12 @@
 package br.com.rpg.repository;
 
-import br.com.rpg.domain.Arma;
-import br.com.rpg.domain.Pericia;
+import java.util.Date;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.util.Date;
+import br.com.rpg.domain.Arma;
 
 public interface ArmaRepository extends JpaRepository<Arma, Integer> {
 

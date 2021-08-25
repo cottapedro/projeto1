@@ -1,8 +1,5 @@
 package br.com.rpg.dto.input;
 
-import java.util.List;
-
-import br.com.rpg.domain.Habilidade;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;

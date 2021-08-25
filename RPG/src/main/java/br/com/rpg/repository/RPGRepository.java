@@ -1,11 +1,12 @@
 package br.com.rpg.repository;
 
-import br.com.rpg.domain.RPG;
+import java.util.Date;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.util.Date;
+import br.com.rpg.domain.RPG;
 
 public interface RPGRepository extends JpaRepository<RPG, Integer> {
 
