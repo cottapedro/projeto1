@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AventuraService } from '../services/aventuras.service';
-import { Rpg } from '../services/rpg';
 import { HabilidadesRaca } from '../services/habilidadeRaca';
 
 
@@ -15,28 +14,20 @@ import { HabilidadesRaca } from '../services/habilidadeRaca';
         <tr>
           <th>ID</th>
           <th>nome</th>
-          <td>descrição</td>
-          <th>tipo</th>
-          <th>valor</th>
-          <th>skill</th>
           <th>raça</th>
           <th>opções</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let rpg of lstHabilidadesRaca">
-          <td>{{rpg.id}}</td>
-          <td>{{rpg.nome}}</td>
-          <td>{{rpg.descricao}}</td>
-          <td>{{rpg.tipoHabilidade}}</td>
-          <td>{{rpg.valor}}</td>
-          <td>{{rpg.skill}}</td>
-          <td>{{rpg.raca.nome}}</td>
+        <tr *ngFor="let habilidadesRaca of lstHabilidadesRaca">
+          <td>{{habilidadesRaca.id}}</td>
+          <td>{{habilidadesRaca.nome}}</td>
+          <td>{{habilidadesRaca.raca.nome}}</td>
           <td>
-            <button class="button" (click)="editarRpg(rpg.id)">
+            <button class="button" (click)="editarHabilidadesRaca(habilidadesRaca.id)">
               <i class="fas fa-edit"></i>
             </button>
-            <button class="button" (click)="removerRpg(rpg.id)">
+            <button class="button" (click)="removerHabilidadesRaca(habilidadesRaca.id)">
               <i class="fas fa-trash"></i>
             </button>
           </td>
@@ -61,11 +52,11 @@ export class HabilidadesRacaListComponent implements OnInit {
     })
   }
 
-  editarRpg(id:number){
+  editarHabilidadesRaca(id:number){
 
   }
 
-  removerRpg(id:number){
+  removerHabilidadesRaca(id:number){
     this.aventuraService.removerHabilidadeRaca(id).subscribe(e=>{});
   }
 }

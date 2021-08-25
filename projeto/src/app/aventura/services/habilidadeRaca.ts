@@ -1,11 +1,9 @@
 import { Raca } from './raca';
+import { Habilidade } from './habilidade';
 
 export interface HabilidadesRaca {
     id?: number;
     nome: string;
-    tipoHabilidade: any;
-    valor: number;
-    skill: string;
     raca: Raca;
-    descricao: string;
+    habilidades: Habilidade[]
 }

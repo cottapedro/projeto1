@@ -9,6 +9,7 @@ import {Pericia} from './pericia';
 import {Atributo} from './atributo';
 import {ArmaduraEscudo} from './armaduraEscudo';
 import { HabilidadesRaca } from './habilidadeRaca';
+import { Habilidade } from './habilidade';
 
 const url = 'http://localhost:8080';
 
@@ -93,6 +94,32 @@ export class AventuraService {
         let headers      = new Headers({ 'Content-Type': 'application/json' });
 
     return this.http.delete(`${url}/habilidade-raca`, new RequestOptions({
+      headers: headers,
+      body: bodyString
+   }));
+    //return this.http.delete(`${url}/usuario`, { body: {'id':id} });
+  }
+
+  findAllHabilidade():Observable<Habilidade[]>{
+    return this.http.get(`${url}/habilidade`).map(res => res.json());
+  }
+
+  salvarHabilidade(habilidade:Habilidade){
+    let bodyString = JSON.stringify(habilidade);
+    let headers      = new Headers({ 'Content-Type': 'application/json' });
+    let options       = new RequestOptions({ headers: headers });
+    
+    return this.http.post(`${url}/habilidade-raca`, bodyString, options)
+    .map(res => res.json())
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
+    .subscribe(()=>{alert('habilidade de raça cadastrada com sucesso!')});
+  }
+
+  removerHabilidade(id: number){
+    let bodyString = JSON.stringify(id);
+        let headers      = new Headers({ 'Content-Type': 'application/json' });
+
+    return this.http.delete(`${url}/habilidade`, new RequestOptions({
       headers: headers,
       body: bodyString
    }));

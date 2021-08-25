@@ -4,7 +4,6 @@ import { AtributoListComponent } from '../atributo/atributo-list.component';
 import { AventuraService } from '../services/aventuras.service';
 import { HabilidadesRaca } from '../services/habilidadeRaca';
 import { Raca } from '../services/raca';
-import { Atributo } from '../services/atributo';
 
 @Component({
     selector: 'app-habilidades-raca-form',
@@ -14,7 +13,6 @@ import { Atributo } from '../services/atributo';
   export class HabilidadesRacaFormComponent implements OnInit {
 
     lstRacas: Raca[];
-    atributos: Atributo[];
     form: FormGroup;
   
     constructor(
@@ -29,24 +27,13 @@ import { Atributo } from '../services/atributo';
           this.lstRacas = e;
       })
     }
-
-    carregaAtributos(){
-      this.aventuraService.findAllAtributos().subscribe(e=>{
-          this.atributos = e;
-      })
-    }
    
     ngOnInit() {
       this.form = this.fb.group({
         nome: [{value: null, disabled: false}, [Validators.required]],
-        tipoHabilidade: [{value: null, disabled: false}, [Validators.required]],
-        valor: [{value: null, disabled: false}, [Validators.required]],
-        skill: [{value: null, disabled: false}, [Validators.required]],
-        descricao: [{value: null, disabled: false}, [Validators.required]],
         raca: [{value: null, disabled: false}, [Validators.required]]
       })
       this.carregaListaDeRacas();
-      this.carregaAtributos();
     }
     
     onSubmit(): void{
@@ -59,10 +46,6 @@ import { Atributo } from '../services/atributo';
 
        id: null,
        nome: this.form.value.nome,
-       descricao: this.form.value.descricao,
-       tipoHabilidade: this.form.value.tipoHabilidade,
-       valor: this.form.value.valor,
-       skill: this.form.value.skill,
        raca: <Raca>{
          id: this.form.value.raca.id,
          //nome: this.form.value.raca.nome,

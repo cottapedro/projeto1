@@ -15,6 +15,8 @@ import { RpgListComponent } from './rpg/rpg-list.component';
 import { RacaListComponent } from './raca/raca-list.component';
 import { HabilidadesRacaListComponent } from './habilidades-raca/habilidades-raca-list.component';
 import { HabilidadesRacaFormComponent } from './habilidades-raca/habilidades-raca-form.component';
+import { HabilidadeListComponent } from './habilidade/habilidade-list.component';
+import { HabilidadeFormComponent } from './habilidade/habilidade-form.component';
 import { PericiaFormComponent } from './pericia/pericia-form.component';
 import { PericiaListComponent } from './pericia/pericia-list.component';
 import { AtributoFormComponent } from './atributo/atributo-form.component';
@@ -41,6 +43,8 @@ import { ArmaduraEscudoFormComponent } from './armadura-escudo/armaduraEscudo-fo
       RacaListComponent,
       HabilidadesRacaListComponent,
       HabilidadesRacaFormComponent,
+      HabilidadeListComponent,
+      HabilidadeFormComponent,
       AtributoListComponent,
       AtributoFormComponent,
       PericiaListComponent,
