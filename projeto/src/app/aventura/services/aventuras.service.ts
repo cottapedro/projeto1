@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch'
 import { Observable } from "rxjs/Rx";
 import { Raca } from './raca';
+import { Role } from './role';
 import {Pericia} from './pericia';
 import {Atributo} from './atributo';
 import {ArmaduraEscudo} from './armaduraEscudo';
@@ -186,6 +187,34 @@ export class AventuraService {
     //return this.http.delete(`${url}/usuario`, { body: {'id':id} });
   }
 
+  findAllRoles():Observable<Role[]>{
+    return this.http.get(`${url}/role`).map(res => res.json());
+  }
+
+  findRoleById(id: number):Observable<Role>{
+    return this.http.get(`${url}/role/${id}`).map(res => res.json());
+  }
+  
+  salvarRole(role:Role){
+    let bodyString = JSON.stringify(role);
+        let headers      = new Headers({ 'Content-Type': 'application/json' });
+        let options       = new RequestOptions({ headers: headers });
+
+        return this.http.post(`${url}/role`, bodyString, options)
+                         .map(res => res.json())
+                         .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
+                         .subscribe(()=>{alert('role cadastrada com sucesso!')});
+  }
+
+  removerRole(id: number){
+    let bodyString = JSON.stringify(id);
+        let headers      = new Headers({ 'Content-Type': 'application/json' });
+
+    return this.http.delete(`${url}/role`, new RequestOptions({
+      headers: headers,
+      body: bodyString
+   }));
+  }
 
 
 findAllArmaduraEscudo():Observable<ArmaduraEscudo[]>{

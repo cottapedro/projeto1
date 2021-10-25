@@ -30,8 +30,9 @@ public class Role implements GrantedAuthority {
     private String nomeRole;
 
     @ManyToMany(mappedBy = "roles")
-    private List<Usuario> usuarios;
-
+    private List<Usuario> jogadores;
+    
+    private Usuario mestre;
 
     @Override
     public String getAuthority(){

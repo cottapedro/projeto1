@@ -1,0 +1,31 @@
+<div class="casca">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <label class="label">Nome</label>
+        <div class="control">
+          <input class="input" type="text" formControlName="nome" placeholder="Nome da Raça">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Descrição</label>
+        <div class="control">
+          <textarea class="textarea" formControlName="descricao" placeholder="Descrição da Raça"></textarea>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">RPG</label>
+        <div class="control">
+          <div class="select">
+              <select formControlName="rpg">
+                  <option *ngFor="let rpg of lstRpg" [ngValue]="rpg">{{rpg.nome}}</option>
+              </select>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <button class="button is-primary" type="submit">Salvar</button>
+        </div>
+      </div>
+    </form>
+    </div>

@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
         <tr>
           <th>ID</th>
           <th>nome</th>
-          <th>email</th>
+          <th>descrição</th>
           <th>opcões</th>
         </tr>
       </thead>

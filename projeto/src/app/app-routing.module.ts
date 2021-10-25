@@ -7,12 +7,14 @@ import { LoginComponent } from 'src/app/auth/login.component';
 import { AventuraFormComponent } from './aventura/aventuras/aventura-form.component';
 import { AventuraModule } from 'src/app/aventura/aventura.module';
 import { AventuraListComponent } from './aventura/aventuras/aventura-list.component';
-import { UsuarioListComponent } from './auth/usuario-list.component';
-import { UsuarioFormComponent } from './auth/usuario-form.component';
+import { UsuarioListComponent } from './auth/usuario/usuario-list.component';
+import { UsuarioFormComponent } from './auth/usuario/usuario-form.component';
 import { RpgFormComponent } from './aventura/rpg/rpg-form.component';
+import { RpgListComponent } from './aventura/rpg/rpg-list.component';
 import { RacaFormComponent } from './aventura/raca/raca-form.component';
 import { RacaListComponent } from './aventura/raca/raca-list.component';
-import { RpgListComponent } from './aventura/rpg/rpg-list.component';
+import { RoleFormComponent } from './aventura/role/role-form.component';
+import { RoleListComponent } from './aventura/role/role-list.component';
 import { HabilidadesRacaListComponent } from './aventura/habilidades-raca/habilidades-raca-list.component';
 import { HabilidadesRacaFormComponent } from './aventura/habilidades-raca/habilidades-raca-form.component';
 import { HabilidadeListComponent } from './aventura/habilidade/habilidade-list.component';
@@ -45,7 +47,7 @@ const APP_ROUTE: Route = {
   }
   // ,{path: 'aventura/listar', component: AventuraListComponent}
   // ,{path: 'aventura/form', component: AventuraFormComponent}
-  ,{path: 'usuario/listar', component: UsuarioListComponent}
+  ,{path: 'usuario/list', component: UsuarioListComponent}
   ,{path: 'usuario/form', component: UsuarioFormComponent}
   ,{path: 'usuario/form/:id', component: UsuarioFormComponent}
   ,{path: 'rpg/list', component: RpgListComponent}
@@ -66,6 +68,8 @@ const APP_ROUTE: Route = {
   ,{path: 'atributo/list', component: AtributoListComponent}
   ,{path: 'atributo/form', component: AtributoFormComponent}
   ,{path: 'atributo/form/:id', component: AtributoFormComponent}
+  ,{path: 'role/list', component: RoleListComponent}
+  ,{path: 'role/form', component: RoleFormComponent}
   
   ,{path: 'principal', loadChildren: ()=> AventuraModule
   }
